@@ -323,7 +323,7 @@ export default function Home() {
 
         <section className="bg-[var(--color-cream)] py-20 md:py-28">
           <div className="page-shell">
-            <h2 className="text-center text-[2.35rem] font-medium leading-[1.05] md:text-[3rem]">
+            <h2 className="text-center text-[53px] font-[500] not-italic leading-[85px] text-[rgb(34,54,20)] max-md:text-[2.35rem] max-md:leading-[1.05]">
               My Specialties
             </h2>
 
@@ -331,15 +331,15 @@ export default function Home() {
               {specialties.map((specialty) => (
                 <article
                   key={specialty.title}
-                  className="flex h-full flex-col border border-[rgba(36,54,27,0.6)] px-7 pb-8 pt-7 md:px-8 md:pb-10 md:pt-8"
+                  className="flex h-full flex-col border border-[rgba(36,54,27,0.6)] bg-[#E5E0DA] px-7 pb-8 pt-7 md:px-8 md:pb-10 md:pt-8"
                 >
-                  <h3 className="text-[1.95rem] font-medium leading-[1.08] md:text-[2.15rem]">
+                  <h3 className="text-[20px] font-[500] leading-[22px]">
                     {specialty.title}
                   </h3>
-                  <p className="mt-6 text-[1.08rem] leading-8 text-[rgba(36,54,27,0.88)] md:text-[1.16rem]">
+                  <p className="mt-6 text-[14px] font-[400] leading-[23px] text-[rgba(36,54,27,0.88)]">
                     {specialty.description}
                   </p>
-                  <div className="circle-mask mt-10 w-[74%] max-w-[380px] self-center md:mt-14">
+                  <div className="circle-mask mt-10 w-[80%] max-w-[410px] self-center md:mt-14">
                     <img
                       src={specialty.image}
                       alt={specialty.title}
@@ -352,36 +352,38 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-[var(--color-bright)] py-20 md:py-28">
-          <div className="page-shell grid items-center gap-12 md:grid-cols-2 md:gap-20">
-            <div>
+        <section className="bg-[var(--color-bright)] py-20 md:py-0">
+          <div className="grid items-center gap-12 md:grid-cols-2 md:items-stretch">
+            <div className="md:h-full">
               <img
                 src="https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/a77b422e-33ac-47b2-825f-293d33884041/valeriia-miller-5jR4rAMs5tk-unsplash+%281%29.jpg"
                 alt="Field flowers"
-                className="aspect-[3/2] w-full object-cover"
+                className="aspect-[4/3] w-full object-cover object-left md:h-full md:aspect-auto"
               />
             </div>
 
-            <div className="max-w-[560px]">
-              <h2 className="text-[2.35rem] font-medium leading-[1.05] md:text-[3rem]">
-                You do not have to do this all <em>alone</em>.
-              </h2>
-              <p className="mt-6 text-[1.08rem] leading-8">
-                If you are facing any of these, there is hope:
-              </p>
-              <ul className="mt-5 list-disc space-y-3 pl-5 text-[1.06rem] leading-8">
-                <li>Persistent feelings of sadness or hopelessness</li>
-                <li>Trouble focusing or making decisions</li>
-                <li>Difficulty maintaining relationships</li>
-                <li>Feeling constantly exhausted or unmotivated</li>
-                <li>A pervasive sense of being overwhelmed</li>
-              </ul>
-              <p className="mt-7 text-[1.08rem] leading-8">
-                With empathy and guidance, we will work together to navigate the
-                challenges life throws your way.
-              </p>
-              <div className="mt-10">
-                <OutlineButton label="WORK WITH ME" />
+            <div className="px-[6vw] md:px-[5.5vw] md:py-28">
+              <div className="max-w-[560px]">
+                <h2 className="text-[2.35rem] font-medium leading-[1.05] md:text-[3rem]">
+                  You do not have to do this all <em>alone</em>.
+                </h2>
+                <p className="mt-6 text-[1.08rem] leading-8">
+                  If you are facing any of these, there is hope:
+                </p>
+                <ul className="mt-5 list-disc space-y-3 pl-5 text-[1.06rem] leading-8">
+                  <li>Persistent feelings of sadness or hopelessness</li>
+                  <li>Trouble focusing or making decisions</li>
+                  <li>Difficulty maintaining relationships</li>
+                  <li>Feeling constantly exhausted or unmotivated</li>
+                  <li>A pervasive sense of being overwhelmed</li>
+                </ul>
+                <p className="mt-7 text-[1.08rem] leading-8">
+                  With empathy and guidance, we will work together to navigate
+                  the challenges life throws your way.
+                </p>
+                <div className="mt-10">
+                  <OutlineButton label="WORK WITH ME" />
+                </div>
               </div>
             </div>
           </div>
@@ -405,7 +407,7 @@ export default function Home() {
             </div>
 
             <div className="order-1 md:order-2">
-              <div className="relative mx-auto w-full max-w-[560px]">
+              <div className="relative mx-auto w-full max-w-[450px] md:-ml-1">
                 <div className="arch-mask">
                   <img
                     src="https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/9a77a6f2-1c50-4582-a5c1-5ec0dc2e94e8/daiga-ellaby-Ct6LBZHaOSc-unsplash.jpg"
@@ -413,7 +415,7 @@ export default function Home() {
                     className="aspect-[2/3] w-full object-cover"
                   />
                 </div>
-                <div className="circle-mask absolute -bottom-8 right-0 w-[120px] md:-bottom-10 md:w-[180px]">
+                <div className="circle-mask absolute -bottom-8 -right-10 w-[312px] md:-bottom-10 md:-right-12">
                   <img
                     src="https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/9f889e1b-ba2b-4a6d-92e9-767dd3db67ae/lilac+template+white+lilac.jpeg"
                     alt="Lilac flower close up"
