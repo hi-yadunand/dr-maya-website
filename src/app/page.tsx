@@ -108,9 +108,13 @@ function OutlineButton({
 function AccordionList({
   items,
   iconPlacement = "right",
+  itemTextClassName = "text-[1.15rem] md:text-[1.25rem]",
+  rowPaddingClassName = "py-4",
 }: {
   items: AccordionItem[];
   iconPlacement?: "left" | "right";
+  itemTextClassName?: string;
+  rowPaddingClassName?: string;
 }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -126,11 +130,11 @@ function AccordionList({
           >
             <button
               type="button"
-              className="flex w-full items-center justify-between gap-4 py-4 text-left text-[1.15rem] md:text-[1.25rem]"
+              className={`flex w-full items-center justify-between gap-4 text-left ${rowPaddingClassName}`}
               onClick={() => setOpenIndex(open ? null : index)}
             >
               {iconPlacement === "left" && <PlusIcon open={open} />}
-              <span className="flex-1">{item.title}</span>
+              <span className={`flex-1 ${itemTextClassName}`}>{item.title}</span>
               {iconPlacement === "right" && <PlusIcon open={open} />}
             </button>
             <div
@@ -364,20 +368,20 @@ export default function Home() {
 
             <div className="px-[6vw] md:px-[5.5vw] md:py-28">
               <div className="max-w-[560px]">
-                <h2 className="text-[2.35rem] font-medium leading-[1.05] md:text-[3rem]">
-                  You do not have to do this all <em>alone</em>.
+                <h2 className="text-[53px] font-[500] not-italic leading-[58px] text-[rgb(34,54,20)] max-md:text-[2.35rem] max-md:leading-[1.05]">
+                  You do not have to do this all alone.
                 </h2>
-                <p className="mt-6 text-[1.08rem] leading-8">
+                <p className="mt-6 text-[20px] font-[400] not-italic leading-[31px] text-[rgb(34,54,20)] max-md:text-[1.08rem] max-md:leading-8">
                   If you are facing any of these, there is hope:
                 </p>
-                <ul className="mt-5 list-disc space-y-3 pl-5 text-[1.06rem] leading-8">
+                <ul className="mt-5 list-disc space-y-3 pl-5 text-[20px] font-[400] not-italic leading-[31px] text-[rgb(34,54,20)] max-md:text-[1.06rem] max-md:leading-8">
                   <li>Persistent feelings of sadness or hopelessness</li>
                   <li>Trouble focusing or making decisions</li>
                   <li>Difficulty maintaining relationships</li>
                   <li>Feeling constantly exhausted or unmotivated</li>
                   <li>A pervasive sense of being overwhelmed</li>
                 </ul>
-                <p className="mt-7 text-[1.08rem] leading-8">
+                <p className="mt-7 text-[20px] font-[400] not-italic leading-[31px] text-[rgb(34,54,20)] max-md:text-[1.08rem] max-md:leading-8">
                   With empathy and guidance, we will work together to navigate
                   the challenges life throws your way.
                 </p>
@@ -392,10 +396,10 @@ export default function Home() {
         <section className="bg-[var(--color-light)] py-20 md:py-28">
           <div className="page-shell grid items-center gap-12 md:grid-cols-2 md:gap-20">
             <div className="order-2 max-w-[560px] md:order-1">
-              <h2 className="text-[2.35rem] font-medium leading-[1.05] md:text-[3rem]">
+              <h2 className="text-[53px] font-[500] not-italic leading-[58px] text-[rgb(34,54,20)] max-md:text-[2.35rem] max-md:leading-[1.05]">
                 Hi, I am Lilac.
               </h2>
-              <p className="mt-6 text-[1.08rem] leading-8">
+              <p className="mt-6 text-[20px] font-[400] not-italic leading-[31px] text-[rgb(34,54,20)] max-md:text-[1.08rem] max-md:leading-8">
                 I am committed to providing a safe and supportive environment
                 where we can explore your thoughts, feelings, and behaviors.
                 With empathy and guidance, we will work together to navigate the
@@ -407,7 +411,7 @@ export default function Home() {
             </div>
 
             <div className="order-1 md:order-2">
-              <div className="relative mx-auto w-full max-w-[450px] md:-ml-1">
+              <div className="relative mx-auto w-full max-w-[430px] md:ml-[60px]">
                 <div className="arch-mask">
                   <img
                     src="https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/9a77a6f2-1c50-4582-a5c1-5ec0dc2e94e8/daiga-ellaby-Ct6LBZHaOSc-unsplash.jpg"
@@ -415,7 +419,7 @@ export default function Home() {
                     className="aspect-[2/3] w-full object-cover"
                   />
                 </div>
-                <div className="circle-mask absolute -bottom-8 -right-10 w-[312px] md:-bottom-10 md:-right-12">
+                <div className="circle-mask absolute -bottom-[47px] -right-[150px] w-[312px] md:-bottom-[55px] md:-right-[158px]">
                   <img
                     src="https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/9f889e1b-ba2b-4a6d-92e9-767dd3db67ae/lilac+template+white+lilac.jpeg"
                     alt="Lilac flower close up"
@@ -438,11 +442,16 @@ export default function Home() {
             </div>
 
             <div className="max-w-[560px]">
-              <h2 className="text-[2.35rem] font-medium leading-[1.05] md:text-[3rem]">
+              <h2 className="text-[53px] font-[500] not-italic leading-[58px] text-[rgb(34,54,20)] max-md:text-[2.35rem] max-md:leading-[1.05]">
                 FAQs
               </h2>
               <div className="mt-6">
-                <AccordionList items={faqItems} iconPlacement="left" />
+                <AccordionList
+                  items={faqItems}
+                  iconPlacement="left"
+                  itemTextClassName="text-[44px] font-[500] not-italic leading-normal text-[rgb(34,54,20)] max-md:text-[1.35rem]"
+                  rowPaddingClassName="py-4 md:py-6"
+                />
               </div>
             </div>
           </div>
@@ -450,11 +459,15 @@ export default function Home() {
 
         <section className="bg-[var(--color-light)] py-20 md:py-24">
           <div className="page-shell">
-            <h3 className="text-center text-[2rem] font-medium leading-[1.1] md:text-[2.5rem]">
+            <h3 className="text-center text-[44px] font-[500] not-italic leading-[49px] text-[rgb(34,54,20)] max-md:text-[2rem] max-md:leading-[1.1]">
               My Professional Background
             </h3>
             <div className="mx-auto mt-8 max-w-[760px]">
-              <AccordionList items={backgroundItems} iconPlacement="right" />
+              <AccordionList
+                items={backgroundItems}
+                iconPlacement="right"
+                itemTextClassName="text-[25px] font-[400] not-italic leading-normal text-[rgb(34,54,20)] max-md:text-[1.25rem]"
+              />
             </div>
           </div>
         </section>
@@ -462,10 +475,10 @@ export default function Home() {
         <section className="bg-[var(--color-dark)] py-20 md:py-28">
           <div className="page-shell">
             <div className="mx-auto max-w-[860px] text-center text-[var(--color-cream)]">
-              <h3 className="text-[2.15rem] font-medium leading-[1.05] md:text-[3rem]">
+              <h3 className="text-[44px] font-[500] not-italic leading-[49px] text-[rgb(251,246,241)] max-md:text-[2.15rem] max-md:leading-[1.05]">
                 Get started today.
               </h3>
-              <p className="mx-auto mt-6 max-w-[760px] text-[1.08rem] leading-8">
+              <p className="mx-auto mt-6 max-w-[760px] text-[20px] font-[400] not-italic leading-[31px] text-[rgb(251,246,241)] max-md:text-[1.08rem] max-md:leading-8">
                 Ready to take the first step towards a happier, healthier you?
                 <br />
                 Contact me to book your first session. I look forward to
@@ -483,8 +496,10 @@ export default function Home() {
         <section className="bg-[var(--color-cream)] py-16 md:py-20">
           <div className="page-shell grid gap-10 md:grid-cols-[2fr_1fr_1fr]">
             <div>
-              <h3 className="text-[2rem] font-medium">Lilac Template</h3>
-              <p className="mt-5 text-[1.06rem] leading-8">
+              <h3 className="text-[44px] font-[500] not-italic leading-[49px] text-[rgb(34,54,20)] max-md:text-[2rem] max-md:leading-[1.2]">
+                Lilac Template
+              </h3>
+              <p className="mt-5 text-[20px] font-[400] not-italic leading-[31px] text-[rgb(34,54,20)] max-md:text-[1.06rem] max-md:leading-8">
                 123 Example Road
                 <br />
                 Minneapolis, MN
@@ -498,7 +513,7 @@ export default function Home() {
 
             <div>
               <h4 className="text-[1.5rem] font-medium">Hours</h4>
-              <p className="mt-4 text-[1.02rem] leading-8">
+              <p className="mt-4 text-[20px] font-[400] not-italic leading-[31px] text-[rgb(34,54,20)] max-md:text-[1.02rem] max-md:leading-8">
                 Monday - Friday
                 <br />
                 10am - 6pm
@@ -507,7 +522,7 @@ export default function Home() {
 
             <div className="md:text-right">
               <h4 className="text-[1.5rem] font-medium">Find</h4>
-              <p className="mt-4 text-[1.02rem] leading-8">
+              <p className="mt-4 text-[20px] font-[400] not-italic leading-[31px] text-[rgb(34,54,20)] max-md:text-[1.02rem] max-md:leading-8">
                 Home
                 <br />
                 Contact
@@ -520,14 +535,14 @@ export default function Home() {
 
         <section className="bg-[var(--color-light)] py-12 md:py-14">
           <div className="page-shell text-center">
-            <p className="text-[0.9rem] leading-8 md:text-[0.95rem]">
+            <p className="text-[16px] font-[400] not-italic leading-[26px] text-[rgb(0,0,0)] max-md:text-[0.9rem] max-md:leading-8">
               Privacy &amp; Cookies Policy &nbsp; Good Faith Estimate &nbsp;
               Website Terms &amp; Conditions &nbsp; Disclaimer
             </p>
-            <p className="mt-2 text-[0.9rem] leading-8 md:text-[0.95rem]">
+            <p className="mt-2 text-[16px] font-[400] not-italic leading-[26px] text-[rgb(0,0,0)] max-md:text-[0.9rem] max-md:leading-8">
               Website Template Credits: Go Bloom Creative
             </p>
-            <p className="mt-3 text-[0.9rem] leading-8 md:text-[0.95rem]">
+            <p className="mt-3 text-[16px] font-[400] not-italic leading-[26px] text-[rgb(34,54,20)] max-md:text-[0.9rem] max-md:leading-8">
               All Rights Reserved © 2024 Your Business Name Here, LLC.
             </p>
           </div>
