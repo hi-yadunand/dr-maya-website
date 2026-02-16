@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Specialty = {
   title: string;
@@ -84,15 +84,17 @@ function OutlineButton({
   label,
   href = "#",
   inverted = false,
+  weightClass = "font-semibold",
 }: {
   label: string;
   href?: string;
   inverted?: boolean;
+  weightClass?: string;
 }) {
   return (
     <a
       href={href}
-      className={`inline-flex items-center justify-center border px-8 py-3 text-[0.82rem] font-semibold uppercase tracking-[0.05em] transition-colors duration-200 ${
+      className={`inline-flex items-center justify-center border px-8 py-3 text-[0.82rem] ${weightClass} uppercase tracking-[0.05em] transition-colors duration-200 ${
         inverted
           ? "border-[var(--color-cream)] text-[var(--color-cream)] hover:bg-[var(--color-cream)] hover:text-[var(--color-dark)]"
           : "border-[var(--color-ink)] text-[var(--color-ink)] hover:bg-[var(--color-ink)] hover:text-[var(--color-cream)]"
@@ -133,7 +135,9 @@ function AccordionList({
             </button>
             <div
               className={`grid overflow-hidden transition-[grid-template-rows,opacity] duration-300 ${
-                open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                open
+                  ? "grid-rows-[1fr] opacity-100"
+                  : "grid-rows-[0fr] opacity-0"
               }`}
             >
               <div className="overflow-hidden">
@@ -151,17 +155,65 @@ function AccordionList({
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const updateHeaderVisibility = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY <= 8) {
+        setIsHeaderVisible(true);
+        lastScrollY.current = currentScrollY;
+        ticking = false;
+        return;
+      }
+
+      if (currentScrollY > lastScrollY.current + 4) {
+        setIsHeaderVisible(false);
+        setMobileMenuOpen(false);
+      } else if (currentScrollY < lastScrollY.current - 4) {
+        setIsHeaderVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(updateHeaderVisibility);
+    };
+
+    lastScrollY.current = window.scrollY;
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div className="bg-[var(--color-cream)] text-[var(--color-ink)]">
-      <header className="sticky top-0 z-50 bg-[rgba(251,246,241,0.96)] backdrop-blur-sm">
-        <div className="page-shell hidden items-center justify-between py-5 md:flex">
-          <a href="#" className="text-[2.15rem] font-medium leading-none">
+      <header
+        className={`sticky top-0 z-50 bg-[rgba(251,246,241,0.96)] backdrop-blur-sm transition-transform duration-300 ${
+          isHeaderVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
+        <div className="page-shell hidden items-baseline justify-between pb-7 pt-3 md:flex">
+          <a href="#" className="text-[2.15rem] font-medium leading-[41px]">
             Lilac Template
           </a>
-          <nav className="flex items-center gap-10 text-[1.25rem]">
+          <nav className="flex items-baseline gap-10 text-[1.25rem] leading-[31px]">
             {navLinks.map((link) => (
-              <a key={link.label} href={link.href} className="hover:opacity-70">
+              <a
+                key={link.label}
+                href={link.href}
+                className="inline-flex leading-[31px] hover:opacity-70"
+              >
                 {link.label}
               </a>
             ))}
@@ -207,9 +259,9 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="bg-[var(--color-cream)] py-12 md:py-16">
+        <section className="bg-[var(--color-cream)] py-12 md:pb-0 md:pt-16">
           <div className="page-shell grid items-center gap-12 md:grid-cols-2 md:gap-16">
-            <div className="arch-mask mx-auto w-full max-w-[500px]">
+            <div className="arch-mask -mt-7 mr-auto w-full max-w-[575px]">
               <img
                 src="https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/08197a74-c045-4a19-a7c9-0f85c1032bc4/daiga-ellaby-M2P08N9zi2k-unsplash.jpg"
                 alt="Person holding flowers"
@@ -217,8 +269,8 @@ export default function Home() {
               />
             </div>
 
-            <div className="mx-auto flex max-w-[560px] flex-col items-center text-center md:items-start md:text-left">
-              <h1 className="text-[3rem] leading-[0.95] font-medium md:text-[4.5rem]">
+            <div className="mx-auto flex max-w-[560px] flex-col items-center text-center md:ml-2 md:-mt-42">
+              <h1 className="text-[81px] leading-[83px] font-[500] max-md:text-[3rem] max-md:leading-[3.1rem]">
                 Live your life
                 <br />
                 in full bloom
@@ -227,28 +279,33 @@ export default function Home() {
                 Therapy for Adults in Minneapolis, MN.
               </p>
               <div className="mt-8">
-                <OutlineButton label="CONNECT WITH ME ->" />
+                <OutlineButton label="CONNECT WITH ME ->" weightClass="font-medium" />
               </div>
             </div>
           </div>
         </section>
 
-        <section className="bg-[var(--color-light)] py-20 md:py-28">
-          <div className="page-shell grid items-center gap-12 md:grid-cols-2 md:gap-20">
-            <div className="order-2 max-w-[560px] md:order-1">
-              <h2 className="text-[2.35rem] font-medium leading-[1.05] md:text-[3rem]">
-                Live a fulfilling life.
-              </h2>
-              <p className="mt-6 text-[1.08rem] leading-8">
-                Life can be challenging - especially when you are trying to
-                balance your personal and professional life.
-              </p>
-              <p className="mt-6 text-[1.08rem] leading-8">
-                It is easy to feel like you are alone in facing these
-                challenges, but I want you to know that I am here to help.
-              </p>
-              <div className="mt-10">
-                <OutlineButton label="GET IN TOUCH" />
+        <section className="bg-[var(--color-light)]">
+          <div className="grid md:min-h-[620px] md:grid-cols-2">
+            <div className="order-2 flex flex-col justify-between md:order-1">
+              <div className="px-[7vw] pb-12 pt-10 md:px-[7.5vw] md:pb-8 md:pt-20">
+                <h2 className="text-[53px] font-[500] leading-[58px] max-md:text-[2.35rem] max-md:leading-[1.05] md:max-w-[760px]">
+                  Live a fulfilling life.
+                </h2>
+                <p className="mt-8 max-w-[860px] text-[20px] font-[400] leading-[31px] max-md:text-[1.08rem] max-md:leading-8">
+                  Life can be challenging - especially when you&apos;re trying
+                  to balance your personal and professional life.
+                </p>
+                <p className="mt-6 max-w-[860px] text-[20px] font-[400] leading-[31px] max-md:text-[1.08rem] max-md:leading-8 md:mt-8">
+                  It&apos;s easy to feel like you&apos;re alone in facing these
+                  challenges, but I want you to know that I&apos;m here to
+                  help.
+                </p>
+              </div>
+              <div className="border-t border-[rgba(36,54,27,0.5)] px-[7vw] py-5 md:px-[7.5vw] md:py-4">
+                <div className="flex justify-center md:justify-start md:pl-[37%]">
+                  <OutlineButton label="GET IN TOUCH ->" weightClass="font-medium" />
+                </div>
               </div>
             </div>
 
@@ -256,7 +313,7 @@ export default function Home() {
               <img
                 src="https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/87fa2310-36df-4a24-a9e9-1b74df73f150/tanya-trukyr-ornZV1YJNNo-unsplash.jpg"
                 alt="Woman in flowers"
-                className="aspect-[3/4] w-full object-cover"
+                className="aspect-[4/3] h-full w-full object-cover md:aspect-auto"
               />
             </div>
           </div>
@@ -268,14 +325,19 @@ export default function Home() {
               My Specialties
             </h2>
 
-            <div className="mt-10 grid gap-8 md:mt-14 md:grid-cols-3">
+            <div className="mt-10 grid items-stretch gap-8 md:mt-14 md:grid-cols-3">
               {specialties.map((specialty) => (
-                <article key={specialty.title} className="px-2 py-4">
-                  <h3 className="text-[1.5rem] font-medium">{specialty.title}</h3>
-                  <p className="mt-5 text-[1rem] leading-8 text-[rgba(36,54,27,0.88)]">
+                <article
+                  key={specialty.title}
+                  className="flex h-full flex-col border border-[rgba(36,54,27,0.6)] px-7 pb-8 pt-7 md:px-8 md:pb-10 md:pt-8"
+                >
+                  <h3 className="text-[1.95rem] font-medium leading-[1.08] md:text-[2.15rem]">
+                    {specialty.title}
+                  </h3>
+                  <p className="mt-6 text-[1.08rem] leading-8 text-[rgba(36,54,27,0.88)] md:text-[1.16rem]">
                     {specialty.description}
                   </p>
-                  <div className="circle-mask mt-8 w-[75%] max-w-[280px]">
+                  <div className="circle-mask mt-10 w-[74%] max-w-[380px] self-center md:mt-14">
                     <img
                       src={specialty.image}
                       alt={specialty.title}
@@ -313,8 +375,8 @@ export default function Home() {
                 <li>A pervasive sense of being overwhelmed</li>
               </ul>
               <p className="mt-7 text-[1.08rem] leading-8">
-                With empathy and guidance, we will work together to navigate
-                the challenges life throws your way.
+                With empathy and guidance, we will work together to navigate the
+                challenges life throws your way.
               </p>
               <div className="mt-10">
                 <OutlineButton label="WORK WITH ME" />
@@ -332,8 +394,8 @@ export default function Home() {
               <p className="mt-6 text-[1.08rem] leading-8">
                 I am committed to providing a safe and supportive environment
                 where we can explore your thoughts, feelings, and behaviors.
-                With empathy and guidance, we will work together to navigate
-                the challenges life throws your way.
+                With empathy and guidance, we will work together to navigate the
+                challenges life throws your way.
               </p>
               <div className="mt-10">
                 <OutlineButton label="LET'S CHAT" />
