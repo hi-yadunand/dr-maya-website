@@ -286,34 +286,36 @@ export default function Home() {
         </section>
 
         <section className="bg-[var(--color-light)]">
-          <div className="grid md:min-h-[620px] md:grid-cols-2">
-            <div className="order-2 flex flex-col justify-between md:order-1">
-              <div className="px-[7vw] pb-12 pt-10 md:px-[7.5vw] md:pb-8 md:pt-20">
-                <h2 className="text-[53px] font-[500] leading-[58px] max-md:text-[2.35rem] max-md:leading-[1.05] md:max-w-[760px]">
-                  Live a fulfilling life.
-                </h2>
-                <p className="mt-8 max-w-[860px] text-[20px] font-[400] leading-[31px] max-md:text-[1.08rem] max-md:leading-8">
-                  Life can be challenging - especially when you&apos;re trying
-                  to balance your personal and professional life.
-                </p>
-                <p className="mt-6 max-w-[860px] text-[20px] font-[400] leading-[31px] max-md:text-[1.08rem] max-md:leading-8 md:mt-8">
-                  It&apos;s easy to feel like you&apos;re alone in facing these
-                  challenges, but I want you to know that I&apos;m here to
-                  help.
-                </p>
+          <div className="grid md:h-[700px] md:grid-cols-2 md:overflow-hidden">
+            <div className="order-2 flex flex-col md:order-1">
+              <div className="flex flex-1 items-center">
+                <div className="w-full px-[7vw] py-10 md:px-[4vw] md:py-0">
+                  <h2 className="text-[53px] font-[500] leading-[58px] max-md:text-[2.35rem] max-md:leading-[1.05] md:max-w-[760px]">
+                    Live a fulfilling life.
+                  </h2>
+                  <p className="mt-8 max-w-[860px] text-[20px] font-[400] leading-[31px] max-md:text-[1.08rem] max-md:leading-8">
+                    Life can be challenging - especially when you&apos;re
+                    trying to balance your personal and professional life.
+                  </p>
+                  <p className="mt-6 max-w-[860px] text-[20px] font-[400] leading-[31px] max-md:text-[1.08rem] max-md:leading-8 md:mt-8">
+                    It&apos;s easy to feel like you&apos;re alone in facing
+                    these challenges, but I want you to know that I&apos;m here
+                    to help.
+                  </p>
+                </div>
               </div>
-              <div className="border-t border-[rgba(36,54,27,0.5)] px-[7vw] py-5 md:px-[7.5vw] md:py-4">
-                <div className="flex justify-center md:justify-start md:pl-[37%]">
+              <div className="border-t border-[rgba(36,54,27,0.5)] py-4 md:py-3">
+                <div className="flex justify-center">
                   <OutlineButton label="GET IN TOUCH ->" weightClass="font-medium" />
                 </div>
               </div>
             </div>
 
-            <div className="order-1 md:order-2">
+            <div className="order-1 overflow-hidden md:order-2">
               <img
                 src="https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/87fa2310-36df-4a24-a9e9-1b74df73f150/tanya-trukyr-ornZV1YJNNo-unsplash.jpg"
                 alt="Woman in flowers"
-                className="aspect-[4/3] h-full w-full object-cover md:aspect-auto"
+                className="h-full min-h-[300px] w-full object-cover object-center md:min-h-0"
               />
             </div>
           </div>
