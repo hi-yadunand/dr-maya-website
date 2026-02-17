@@ -63,8 +63,8 @@ const backgroundItems: AccordionItem[] = [
 ];
 
 const navLinks = [
-  { label: "Blog", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "Blog", href: "#professional-background" },
+  { label: "Contact", href: "#contact-form" },
 ];
 
 function PlusIcon({ open }: { open: boolean }) {
@@ -94,11 +94,8 @@ function OutlineButton({
   return (
     <a
       href={href}
-      className={`inline-flex items-center justify-center border px-8 py-3 text-[0.82rem] ${weightClass} uppercase tracking-[0.05em] transition-colors duration-200 ${
-        inverted
-          ? "border-[var(--color-cream)] text-[var(--color-cream)] hover:bg-[var(--color-cream)] hover:text-[var(--color-dark)]"
-          : "border-[var(--color-ink)] text-[var(--color-ink)] hover:bg-[var(--color-ink)] hover:text-[var(--color-cream)]"
-      }`}
+      className={`inline-flex items-center justify-center rounded-full bg-[var(--color-accent)] px-10 py-3 text-[0.82rem] ${weightClass} uppercase tracking-[0.05em] !text-white transition-colors duration-200 hover:bg-[var(--color-accent-dark)] hover:!text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-dark)]`}
+      data-inverted={inverted ? "true" : "false"}
     >
       {label}
     </a>
@@ -119,15 +116,12 @@ function AccordionList({
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className="border-t border-[rgba(36,54,27,0.45)]">
+    <div className="border-t border-[var(--color-border)]">
       {items.map((item, index) => {
         const open = index === openIndex;
 
         return (
-          <div
-            key={item.title}
-            className="border-b border-[rgba(36,54,27,0.45)]"
-          >
+          <div key={item.title} className="border-b border-[var(--color-border)]">
             <button
               type="button"
               className={`flex w-full items-center justify-between gap-4 text-left ${rowPaddingClassName}`}
@@ -145,7 +139,7 @@ function AccordionList({
               }`}
             >
               <div className="overflow-hidden">
-                <p className="pb-6 text-[0.98rem] leading-8 text-[rgba(36,54,27,0.85)] md:pb-8">
+                <p className="pb-6 text-[0.98rem] leading-8 text-[var(--color-text)] md:pb-8">
                   {item.content}
                 </p>
               </div>
@@ -201,14 +195,14 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-[var(--color-cream)] text-[var(--color-ink)]">
+    <div id="top" className="bg-[var(--color-bg-primary)] text-[var(--color-text)]">
       <header
-        className={`sticky top-0 z-50 bg-[rgba(251,246,241,0.96)] backdrop-blur-sm transition-transform duration-300 ${
+        className={`sticky top-0 z-50 bg-[var(--color-bg-primary-elevated)] backdrop-blur-sm transition-transform duration-300 ${
           isHeaderVisible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
         <div className="page-shell hidden items-baseline justify-between pb-7 pt-3 md:flex">
-          <a href="#" className="text-[2.15rem] font-medium leading-[41px]">
+          <a href="#top" className="text-[2.15rem] font-medium leading-[41px]">
             Lilac Template
           </a>
           <nav className="flex items-baseline gap-10 text-[1.25rem] leading-[31px]">
@@ -216,7 +210,7 @@ export default function Home() {
               <a
                 key={link.label}
                 href={link.href}
-                className="inline-flex leading-[31px] hover:opacity-70"
+                className="inline-flex leading-[31px] transition-colors duration-200 hover:text-[var(--color-accent)]"
               >
                 {link.label}
               </a>
@@ -232,12 +226,12 @@ export default function Home() {
             className="inline-flex h-8 w-8 items-center justify-center"
           >
             <span className="space-y-1.5">
-              <span className="block h-px w-5 bg-[var(--color-ink)]" />
-              <span className="block h-px w-5 bg-[var(--color-ink)]" />
+              <span className="block h-px w-5 bg-[var(--color-text)]" />
+              <span className="block h-px w-5 bg-[var(--color-text)]" />
             </span>
           </button>
           <a
-            href="#"
+            href="#top"
             className="text-center text-[1.85rem] font-medium leading-none"
           >
             Lilac Template
@@ -246,13 +240,14 @@ export default function Home() {
         </div>
 
         {mobileMenuOpen && (
-          <nav className="border-t border-[rgba(36,54,27,0.08)] bg-[var(--color-cream)] px-[6vw] py-4 md:hidden">
+          <nav className="border-t border-[var(--color-border)] bg-[var(--color-bg-primary)] px-[6vw] py-4 md:hidden">
             <div className="flex flex-col gap-3 text-[1.1rem]">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
+                  className="transition-colors duration-200 hover:text-[var(--color-accent)]"
                 >
                   {link.label}
                 </a>
@@ -263,7 +258,7 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="bg-[var(--color-cream)] py-12 md:pb-0 md:pt-16">
+        <section className="bg-[var(--color-bg-primary)] py-12 md:pb-0 md:pt-16">
           <div className="page-shell grid items-center gap-12 md:grid-cols-2 md:gap-16">
             <div className="arch-mask -mt-7 mr-auto w-full max-w-[575px]">
               <img
@@ -283,17 +278,21 @@ export default function Home() {
                 Therapy for Adults in Minneapolis, MN.
               </p>
               <div className="mt-8">
-                <OutlineButton label="CONNECT WITH ME ->" weightClass="font-medium" />
+                <OutlineButton
+                  label="CONNECT WITH ME ->"
+                  href="#contact-form"
+                  weightClass="font-medium"
+                />
               </div>
             </div>
           </div>
         </section>
 
-        <section className="bg-[var(--color-light)]">
+        <section className="bg-[var(--color-bg-alt)]">
           <div className="grid md:h-[700px] md:grid-cols-2 md:overflow-hidden">
             <div className="order-2 flex flex-col md:order-1">
               <div className="flex flex-1 items-center">
-                <div className="w-full px-[7vw] py-10 md:px-[4vw] md:py-0">
+                <div className="w-full px-[6vw] py-10 md:px-[4vw] md:py-0">
                   <h2 className="text-[53px] font-[500] leading-[58px] max-md:text-[2.35rem] max-md:leading-[1.05] md:max-w-[760px]">
                     Live a fulfilling life.
                   </h2>
@@ -308,9 +307,13 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <div className="border-t border-[rgba(36,54,27,0.5)] py-4 md:py-3">
+              <div className="border-t border-[var(--color-border)] py-4 md:py-3">
                 <div className="flex justify-center">
-                  <OutlineButton label="GET IN TOUCH ->" weightClass="font-medium" />
+                  <OutlineButton
+                    label="GET IN TOUCH ->"
+                    href="#contact-form"
+                    weightClass="font-medium"
+                  />
                 </div>
               </div>
             </div>
@@ -325,22 +328,22 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-[var(--color-cream)] py-20 md:py-28">
+        <section className="bg-[var(--color-bg-primary)] py-20 md:py-28">
           <div className="page-shell">
-            <h2 className="text-center text-[53px] font-[500] not-italic leading-[85px] text-[rgb(34,54,20)] max-md:text-[2.35rem] max-md:leading-[1.05]">
+            <h2 className="text-center text-[53px] font-[500] not-italic leading-[85px] text-[var(--color-text)] max-md:text-[2.35rem] max-md:leading-[1.05]">
               My Specialties
             </h2>
 
-            <div className="mt-10 grid items-stretch gap-8 md:mt-14 md:grid-cols-3">
+            <div className="mt-10 grid items-stretch gap-5 min-[576px]:grid-cols-2 md:mt-14 md:gap-8 md:grid-cols-3">
               {specialties.map((specialty) => (
                 <article
                   key={specialty.title}
-                  className="flex h-full flex-col border border-[rgba(36,54,27,0.6)] bg-[#E5E0DA] px-7 pb-8 pt-7 md:px-8 md:pb-10 md:pt-8"
+                  className="flex h-full flex-col border border-[var(--color-border)] bg-[#F8F3EC] px-7 pb-8 pt-7 md:px-8 md:pb-10 md:pt-8"
                 >
-                  <h3 className="text-[20px] font-[500] leading-[22px]">
+                  <h3 className="inline-flex w-fit items-center rounded-full bg-[#E7CFC4] px-4 py-2 text-[20px] font-[500] leading-[22px]">
                     {specialty.title}
                   </h3>
-                  <p className="mt-6 text-[14px] font-[400] leading-[23px] text-[rgba(36,54,27,0.88)]">
+                  <p className="mt-6 text-[14px] font-[400] leading-[23px] text-[var(--color-text)]">
                     {specialty.description}
                   </p>
                   <div className="circle-mask mt-10 w-[80%] max-w-[410px] self-center md:mt-14">
@@ -356,7 +359,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-[var(--color-bright)] py-20 md:py-0">
+        <section className="bg-[#F8F3EC] py-20 md:py-0">
           <div className="grid items-center gap-12 md:grid-cols-2 md:items-stretch">
             <div className="md:h-full">
               <img
@@ -368,45 +371,45 @@ export default function Home() {
 
             <div className="px-[6vw] md:px-[5.5vw] md:py-28">
               <div className="max-w-[560px]">
-                <h2 className="text-[53px] font-[500] not-italic leading-[58px] text-[rgb(34,54,20)] max-md:text-[2.35rem] max-md:leading-[1.05]">
+                <h2 className="text-[53px] font-[500] not-italic leading-[58px] text-[var(--color-text)] max-md:text-[2.35rem] max-md:leading-[1.05]">
                   You do not have to do this all alone.
                 </h2>
-                <p className="mt-6 text-[20px] font-[400] not-italic leading-[31px] text-[rgb(34,54,20)] max-md:text-[1.08rem] max-md:leading-8">
+                <p className="mt-6 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.08rem] max-md:leading-8">
                   If you are facing any of these, there is hope:
                 </p>
-                <ul className="mt-5 list-disc space-y-3 pl-5 text-[20px] font-[400] not-italic leading-[31px] text-[rgb(34,54,20)] max-md:text-[1.06rem] max-md:leading-8">
+                <ul className="mt-5 list-disc space-y-3 pl-5 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.06rem] max-md:leading-8">
                   <li>Persistent feelings of sadness or hopelessness</li>
                   <li>Trouble focusing or making decisions</li>
                   <li>Difficulty maintaining relationships</li>
                   <li>Feeling constantly exhausted or unmotivated</li>
                   <li>A pervasive sense of being overwhelmed</li>
                 </ul>
-                <p className="mt-7 text-[20px] font-[400] not-italic leading-[31px] text-[rgb(34,54,20)] max-md:text-[1.08rem] max-md:leading-8">
+                <p className="mt-7 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.08rem] max-md:leading-8">
                   With empathy and guidance, we will work together to navigate
                   the challenges life throws your way.
                 </p>
                 <div className="mt-10">
-                  <OutlineButton label="WORK WITH ME" />
+                  <OutlineButton label="WORK WITH ME" href="#contact-form" />
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="bg-[var(--color-light)] py-20 md:py-28">
+        <section className="bg-[var(--color-bg-primary)] py-20 md:py-28">
           <div className="page-shell grid items-center gap-12 md:grid-cols-2 md:gap-20">
             <div className="order-2 max-w-[560px] md:order-1">
-              <h2 className="text-[53px] font-[500] not-italic leading-[58px] text-[rgb(34,54,20)] max-md:text-[2.35rem] max-md:leading-[1.05]">
+              <h2 className="text-[53px] font-[500] not-italic leading-[58px] text-[var(--color-text)] max-md:text-[2.35rem] max-md:leading-[1.05]">
                 Hi, I am Lilac.
               </h2>
-              <p className="mt-6 text-[20px] font-[400] not-italic leading-[31px] text-[rgb(34,54,20)] max-md:text-[1.08rem] max-md:leading-8">
+              <p className="mt-6 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.08rem] max-md:leading-8">
                 I am committed to providing a safe and supportive environment
                 where we can explore your thoughts, feelings, and behaviors.
                 With empathy and guidance, we will work together to navigate the
                 challenges life throws your way.
               </p>
               <div className="mt-10">
-                <OutlineButton label="LET'S CHAT" />
+                <OutlineButton label="LET'S CHAT" href="#contact-form" />
               </div>
             </div>
 
@@ -431,7 +434,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-[var(--color-cream)] py-20 md:py-28">
+        <section className="bg-[var(--color-bg-alt)] py-20 md:py-28">
           <div className="page-shell grid items-start gap-12 md:grid-cols-2 md:gap-20">
             <div className="arch-mask mx-auto w-full max-w-[500px]">
               <img
@@ -442,14 +445,14 @@ export default function Home() {
             </div>
 
             <div className="max-w-[560px]">
-              <h2 className="text-[53px] font-[500] not-italic leading-[58px] text-[rgb(34,54,20)] max-md:text-[2.35rem] max-md:leading-[1.05]">
+              <h2 className="text-[53px] font-[500] not-italic leading-[58px] text-[var(--color-text)] max-md:text-[2.35rem] max-md:leading-[1.05]">
                 FAQs
               </h2>
               <div className="mt-6">
                 <AccordionList
                   items={faqItems}
                   iconPlacement="left"
-                  itemTextClassName="text-[44px] font-[500] not-italic leading-normal text-[rgb(34,54,20)] max-md:text-[1.35rem]"
+                  itemTextClassName="text-[44px] font-[500] not-italic leading-normal text-[var(--color-text)] max-md:text-[1.35rem]"
                   rowPaddingClassName="py-4 md:py-6"
                 />
               </div>
@@ -457,35 +460,38 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-[var(--color-light)] py-20 md:py-24">
+        <section
+          id="professional-background"
+          className="bg-[var(--color-bg-primary)] py-20 md:py-24"
+        >
           <div className="page-shell">
-            <h3 className="text-center text-[44px] font-[500] not-italic leading-[49px] text-[rgb(34,54,20)] max-md:text-[2rem] max-md:leading-[1.1]">
+            <h3 className="text-center text-[44px] font-[500] not-italic leading-[49px] text-[var(--color-text)] max-md:text-[2rem] max-md:leading-[1.1]">
               My Professional Background
             </h3>
             <div className="mx-auto mt-8 max-w-[760px]">
               <AccordionList
                 items={backgroundItems}
                 iconPlacement="right"
-                itemTextClassName="text-[25px] font-[400] not-italic leading-normal text-[rgb(34,54,20)] max-md:text-[1.25rem]"
+                itemTextClassName="text-[25px] font-[400] not-italic leading-normal text-[var(--color-text)] max-md:text-[1.25rem]"
               />
             </div>
           </div>
         </section>
 
-        <section className="bg-[var(--color-dark)] py-20 md:py-28">
+        <section className="bg-[var(--color-bg-alt)] py-20 md:py-28">
           <div className="page-shell">
-            <div className="mx-auto max-w-[860px] text-center text-[var(--color-cream)]">
-              <h3 className="text-[44px] font-[500] not-italic leading-[49px] text-[rgb(251,246,241)] max-md:text-[2.15rem] max-md:leading-[1.05]">
+            <div className="mx-auto max-w-[860px] text-center text-[var(--color-text)]">
+              <h3 className="text-[44px] font-[500] not-italic leading-[49px] text-[var(--color-text)] max-md:text-[2.15rem] max-md:leading-[1.05]">
                 Get started today.
               </h3>
-              <p className="mx-auto mt-6 max-w-[760px] text-[20px] font-[400] not-italic leading-[31px] text-[rgb(251,246,241)] max-md:text-[1.08rem] max-md:leading-8">
+              <p className="mx-auto mt-6 max-w-[760px] text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.08rem] max-md:leading-8">
                 Ready to take the first step towards a happier, healthier you?
                 <br />
                 Contact me to book your first session. I look forward to
                 starting this therapeutic journey with you.
               </p>
               <div className="mt-10">
-                <OutlineButton label="GET IN TOUCH" inverted />
+                <OutlineButton label="GET IN TOUCH" href="#contact-form" inverted />
               </div>
             </div>
           </div>
@@ -493,13 +499,13 @@ export default function Home() {
       </main>
 
       <footer>
-        <section className="bg-[var(--color-cream)] py-16 md:py-20">
+        <section id="contact-form" className="bg-[var(--color-bg-primary)] py-16 md:py-20">
           <div className="page-shell grid gap-10 md:grid-cols-[2fr_1fr_1fr]">
             <div>
-              <h3 className="text-[44px] font-[500] not-italic leading-[49px] text-[rgb(34,54,20)] max-md:text-[2rem] max-md:leading-[1.2]">
+              <h3 className="text-[44px] font-[500] not-italic leading-[49px] text-[var(--color-text)] max-md:text-[2rem] max-md:leading-[1.2]">
                 Lilac Template
               </h3>
-              <p className="mt-5 text-[20px] font-[400] not-italic leading-[31px] text-[rgb(34,54,20)] max-md:text-[1.06rem] max-md:leading-8">
+              <p className="mt-5 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.06rem] max-md:leading-8">
                 123 Example Road
                 <br />
                 Minneapolis, MN
@@ -513,7 +519,7 @@ export default function Home() {
 
             <div>
               <h4 className="text-[1.5rem] font-medium">Hours</h4>
-              <p className="mt-4 text-[20px] font-[400] not-italic leading-[31px] text-[rgb(34,54,20)] max-md:text-[1.02rem] max-md:leading-8">
+              <p className="mt-4 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.02rem] max-md:leading-8">
                 Monday - Friday
                 <br />
                 10am - 6pm
@@ -522,28 +528,43 @@ export default function Home() {
 
             <div className="md:text-right">
               <h4 className="text-[1.5rem] font-medium">Find</h4>
-              <p className="mt-4 text-[20px] font-[400] not-italic leading-[31px] text-[rgb(34,54,20)] max-md:text-[1.02rem] max-md:leading-8">
-                Home
+              <p className="mt-4 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.02rem] max-md:leading-8">
+                <a
+                  href="#top"
+                  className="transition-colors duration-200 hover:text-[var(--color-accent)]"
+                >
+                  Home
+                </a>
                 <br />
-                Contact
+                <a
+                  href="#contact-form"
+                  className="transition-colors duration-200 hover:text-[var(--color-accent)]"
+                >
+                  Contact
+                </a>
                 <br />
-                Blog
+                <a
+                  href="#professional-background"
+                  className="transition-colors duration-200 hover:text-[var(--color-accent)]"
+                >
+                  Blog
+                </a>
               </p>
             </div>
           </div>
         </section>
 
-        <section className="bg-[var(--color-light)] py-12 md:py-14">
+        <section className="bg-[var(--color-bg-alt)] py-[max(12px,1vmax)] min-h-[10vh]">
           <div className="page-shell text-center">
-            <p className="text-[16px] font-[400] not-italic leading-[26px] text-[rgb(0,0,0)] max-md:text-[0.9rem] max-md:leading-8">
+            <p className="text-[16px] font-[400] not-italic leading-[26px] text-[var(--color-text)] max-md:text-[0.9rem] max-md:leading-8">
               Privacy &amp; Cookies Policy &nbsp; Good Faith Estimate &nbsp;
               Website Terms &amp; Conditions &nbsp; Disclaimer
             </p>
-            <p className="mt-2 text-[16px] font-[400] not-italic leading-[26px] text-[rgb(0,0,0)] max-md:text-[0.9rem] max-md:leading-8">
+            <p className="mt-2 text-[16px] font-[400] not-italic leading-[26px] text-[var(--color-text)] max-md:text-[0.9rem] max-md:leading-8">
               Website Template Credits: Go Bloom Creative
             </p>
-            <p className="mt-3 text-[16px] font-[400] not-italic leading-[26px] text-[rgb(34,54,20)] max-md:text-[0.9rem] max-md:leading-8">
-              All Rights Reserved © 2024 Your Business Name Here, LLC.
+            <p className="mt-3 text-[16px] font-[400] not-italic leading-[26px] text-[var(--color-text)] max-md:text-[0.9rem] max-md:leading-8">
+              All Rights Reserved &copy; 2024 Your Business Name Here, LLC.
             </p>
           </div>
         </section>
