@@ -176,6 +176,12 @@ a {
   text-decoration: none;
 }
 
+.always-underline {
+  text-decoration: none !important;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.05em;
+}
+
 .page-shell {
   width: min(var(--site-max-width), calc(100% - (var(--site-gutter-mobile) * 2)));
   margin-inline: auto;
