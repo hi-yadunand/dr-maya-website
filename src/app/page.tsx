@@ -345,7 +345,7 @@ export default function Home() {
         </section>
 
         <section className="bg-[var(--color-bg-alt)] py-0 lg:!h-[720px] lg:!min-h-[720px] lg:overflow-hidden">
-          <GridContainer className="items-stretch gap-y-0 max-w-none pr-0 md:pr-0 lg:h-full">
+          <GridContainer className="items-stretch gap-y-0 max-w-none lg:pr-0 lg:h-full">
             <div className="col-span-4 md:col-span-8 lg:col-span-6 order-2 lg:order-1 grid grid-rows-[1fr_auto] bg-[var(--color-bg-alt)]">
               <div className="self-center py-10 lg:py-0 lg:pr-10">
                 <h2 className="text-[53px] font-[500] leading-[58px] max-md:text-[2.35rem] max-md:leading-[1.05] md:max-w-[760px]">
@@ -374,7 +374,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="col-span-4 md:col-span-8 lg:col-span-6 order-1 lg:order-2 overflow-hidden lg:h-full">
+            <div className="col-span-4 md:col-span-8 lg:col-span-6 order-1 -mx-[6vw] w-[calc(100%+12vw)] overflow-hidden md:mx-0 md:w-full lg:order-2 lg:h-full">
               <img
                 src="/assets/Create%20a%20steadier.png"
                 alt="Create a steadier"
@@ -416,8 +416,8 @@ export default function Home() {
         </section>
 
         <section className="bg-[#F8F3EC] py-20 md:py-0 lg:!h-[720px] lg:!min-h-[720px] lg:overflow-hidden">
-          <GridContainer className="items-stretch gap-y-0 max-w-none pl-0 md:pl-0 lg:h-full">
-            <div className="col-span-4 md:col-span-8 lg:col-span-6 overflow-hidden lg:h-full">
+          <GridContainer className="items-stretch gap-y-0 max-w-none lg:pl-0 lg:h-full">
+            <div className="col-span-4 md:col-span-8 lg:col-span-6 -mx-[6vw] w-[calc(100%+12vw)] overflow-hidden md:mx-0 md:w-full lg:h-full">
               <img
                 src="/assets/Managing%20everything%20alone.png"
                 alt="Managing everything alone"
@@ -541,7 +541,7 @@ export default function Home() {
                   className="aspect-[16/10] w-full object-cover"
                 />
               </div>
-              <div className="overflow-hidden rounded-[24px] border border-[var(--color-border)] bg-[var(--color-bg-alt)]">
+              <div className="-mx-[6vw] w-[calc(100%+12vw)] overflow-hidden rounded-[24px] border border-[var(--color-border)] bg-[var(--color-bg-alt)] md:mx-0 md:w-full">
                 <img
                   src="/assets/office2.jpeg"
                   alt="Counseling office space"
