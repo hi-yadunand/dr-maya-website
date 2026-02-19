@@ -102,7 +102,7 @@ function OutlineButton({
   return (
     <a
       href={href}
-      className={`inline-flex items-center justify-center rounded-full bg-[var(--color-accent)] px-10 py-3 text-[0.82rem] ${weightClass} uppercase tracking-[0.05em] !text-white transition-colors duration-200 hover:bg-[var(--color-accent-dark)] hover:!text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-dark)]`}
+      className={`${nunito.className} inline-flex items-center justify-center rounded-full bg-[var(--color-accent)] px-10 py-3 text-[0.82rem] ${weightClass} uppercase tracking-[0.05em] !text-white transition-colors duration-200 hover:bg-[var(--color-accent-dark)] hover:!text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-dark)]`}
       data-inverted={inverted ? "true" : "false"}
     >
       {label}
@@ -135,7 +135,7 @@ function AccordionList({
           >
             <button
               type="button"
-              className={`flex w-full items-center justify-between gap-4 text-left ${rowPaddingClassName}`}
+              className={`${nunito.className} flex w-full items-center justify-between gap-4 text-left ${rowPaddingClassName}`}
               onClick={() => setOpenIndex(open ? null : index)}
             >
               {iconPlacement === "left" && <PlusIcon open={open} />}
@@ -239,7 +239,7 @@ export default function Home() {
             type="button"
             aria-label="Open menu"
             onClick={() => setMobileMenuOpen((state) => !state)}
-            className="inline-flex h-8 w-8 items-center justify-center"
+            className={`${nunito.className} inline-flex h-8 w-8 items-center justify-center`}
           >
             <span className="space-y-1.5">
               <span className="block h-px w-5 bg-[var(--color-text)]" />
@@ -306,8 +306,8 @@ export default function Home() {
           </GridContainer>
         </section>
 
-        <section className="bg-[var(--color-bg-alt)] py-0">
-          <GridContainer className="items-stretch gap-y-0">
+        <section className="bg-[var(--color-bg-alt)] py-0 lg:!h-[720px] lg:!min-h-[720px] lg:overflow-hidden">
+          <GridContainer className="items-stretch gap-y-0 max-w-none pr-0 md:pr-0 lg:h-full">
             <div className="col-span-4 md:col-span-8 lg:col-span-6 order-2 lg:order-1 grid bg-[var(--color-bg-alt)]">
               <div className="self-center py-10 lg:py-0 lg:pr-10">
                 <h2 className="text-[53px] font-[500] leading-[58px] max-md:text-[2.35rem] max-md:leading-[1.05] md:max-w-[760px]">
@@ -319,11 +319,10 @@ export default function Home() {
                 </p>
                 <p className="mt-6 max-w-[860px] text-[20px] font-[400] leading-[31px] max-md:text-[1.08rem] max-md:leading-8 md:mt-8">
                   It&apos;s easy to feel like you&apos;re alone in facing these
-                  challenges, but I want you to know that I&apos;m here to
-                  help.
+                  challenges, but I want you to know that I&apos;m here to help.
                 </p>
               </div>
-              <div className="border-t border-[var(--color-border)] py-4 md:py-3">
+              <div className="border-t border-[var(--color-border)] pb-4 pt-8 md:pb-3 md:pt-7">
                 <div className="grid place-items-center">
                   <OutlineButton
                     label="GET IN TOUCH ->"
@@ -334,11 +333,11 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="col-span-4 md:col-span-8 lg:col-span-6 order-1 lg:order-2 overflow-hidden lg:min-h-[700px]">
+            <div className="col-span-4 md:col-span-8 lg:col-span-6 order-1 lg:order-2 overflow-hidden lg:h-full">
               <img
                 src="https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/87fa2310-36df-4a24-a9e9-1b74df73f150/tanya-trukyr-ornZV1YJNNo-unsplash.jpg"
                 alt="Woman in flowers"
-                className="h-full min-h-[300px] w-full object-cover object-center md:min-h-0"
+                className="h-full min-h-[300px] w-full object-cover object-right md:min-h-0"
               />
             </div>
           </GridContainer>
@@ -376,7 +375,7 @@ export default function Home() {
         </section>
 
         <section className="bg-[#F8F3EC] py-20 md:py-0">
-          <GridContainer className="items-center">
+          <GridContainer className="items-center max-w-none pl-0 md:pl-0">
             <div className="col-span-4 md:col-span-8 lg:col-span-6 lg:h-full">
               <img
                 src="https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/a77b422e-33ac-47b2-825f-293d33884041/valeriia-miller-5jR4rAMs5tk-unsplash+%281%29.jpg"
@@ -604,8 +603,12 @@ export default function Home() {
                 Hours
               </h4>
               <p className="mt-4 text-[20px] font-[400] not-italic leading-[31px] text-[rgb(34,54,20)]">
-                <span className="block whitespace-nowrap">Monday &ndash; Friday</span>
-                <span className="block whitespace-nowrap">10am &ndash; 6pm</span>
+                <span className="block whitespace-nowrap">
+                  Monday &ndash; Friday
+                </span>
+                <span className="block whitespace-nowrap">
+                  10am &ndash; 6pm
+                </span>
               </p>
             </div>
 
@@ -642,49 +645,49 @@ export default function Home() {
         <section className="bg-[var(--color-bg-alt)] py-[max(38px,3.1vmax)] h-[240px]">
           <GridContainer className="h-full">
             <div className="col-span-4 md:col-span-8 lg:col-span-12 grid h-full grid-rows-[auto_auto_1fr_auto] pt-3 text-center md:pt-5">
-            <p className="text-[16px] font-[400] not-italic leading-[26px] text-[var(--color-text)] max-md:text-[0.9rem] max-md:leading-8">
-              <a
-                href="/privacy-policy"
-                className="always-underline transition-colors duration-200 hover:text-[var(--color-accent)]"
-              >
-                Privacy &amp; Cookies Policy
-              </a>
-              {"\u00A0\u00A0"}
-              <a
-                href="/good-faith-estimate"
-                className="always-underline transition-colors duration-200 hover:text-[var(--color-accent)]"
-              >
-                Good Faith Estimate
-              </a>
-              {"\u00A0\u00A0"}
-              <a
-                href="/terms-conditions"
-                className="always-underline transition-colors duration-200 hover:text-[var(--color-accent)]"
-              >
-                Website Terms &amp; Conditions
-              </a>
-              {"\u00A0\u00A0"}
-              <a
-                href="/disclaimer"
-                className="always-underline transition-colors duration-200 hover:text-[var(--color-accent)]"
-              >
-                Disclaimer
-              </a>
-            </p>
-            <p className="mt-3 text-[16px] font-[400] not-italic leading-[26px] text-[var(--color-text)] max-md:text-[0.9rem] max-md:leading-8">
-              Website Template Credits:{" "}
-              <a
-                href="https://www.gobloomcreative.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="always-underline transition-colors duration-200 hover:text-[var(--color-accent)]"
-              >
-                Go Bloom Creative
-              </a>
-            </p>
-            <p className="pt-4 text-[16px] font-[400] not-italic leading-[26px] text-[var(--color-text)] max-md:text-[0.9rem] max-md:leading-8">
-              All Rights Reserved &copy; 2024 Your Business Name Here, LLC.
-            </p>
+              <p className="text-[16px] font-[400] not-italic leading-[26px] text-[var(--color-text)] max-md:text-[0.9rem] max-md:leading-8">
+                <a
+                  href="/privacy-policy"
+                  className="always-underline transition-colors duration-200 hover:text-[var(--color-accent)]"
+                >
+                  Privacy &amp; Cookies Policy
+                </a>
+                {"\u00A0\u00A0"}
+                <a
+                  href="/good-faith-estimate"
+                  className="always-underline transition-colors duration-200 hover:text-[var(--color-accent)]"
+                >
+                  Good Faith Estimate
+                </a>
+                {"\u00A0\u00A0"}
+                <a
+                  href="/terms-conditions"
+                  className="always-underline transition-colors duration-200 hover:text-[var(--color-accent)]"
+                >
+                  Website Terms &amp; Conditions
+                </a>
+                {"\u00A0\u00A0"}
+                <a
+                  href="/disclaimer"
+                  className="always-underline transition-colors duration-200 hover:text-[var(--color-accent)]"
+                >
+                  Disclaimer
+                </a>
+              </p>
+              <p className="mt-3 text-[16px] font-[400] not-italic leading-[26px] text-[var(--color-text)] max-md:text-[0.9rem] max-md:leading-8">
+                Website Template Credits:{" "}
+                <a
+                  href="https://www.gobloomcreative.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="always-underline transition-colors duration-200 hover:text-[var(--color-accent)]"
+                >
+                  Go Bloom Creative
+                </a>
+              </p>
+              <p className="pt-4 text-[16px] font-[400] not-italic leading-[26px] text-[var(--color-text)] max-md:text-[0.9rem] max-md:leading-8">
+                All Rights Reserved &copy; 2024 Your Business Name Here, LLC.
+              </p>
             </div>
           </GridContainer>
         </section>
