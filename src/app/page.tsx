@@ -99,13 +99,39 @@ function OutlineButton({
   inverted?: boolean;
   weightClass?: string;
 }) {
+  const labelChars = Array.from(label);
+
   return (
     <a
       href={href}
-      className={`${nunito.className} inline-flex items-center justify-center rounded-full bg-[var(--color-accent)] px-10 py-3 text-[0.82rem] ${weightClass} uppercase tracking-[0.05em] !text-white transition-colors duration-200 hover:bg-[var(--color-accent-dark)] hover:!text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-dark)]`}
+      aria-label={label}
+      className={`${nunito.className} group inline-flex items-center justify-center rounded-full bg-[var(--color-accent)] px-10 py-3 text-[0.82rem] ${weightClass} uppercase tracking-[0.05em] !text-white transition-colors duration-200 hover:bg-[var(--color-accent-dark)] hover:!text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-dark)]`}
       data-inverted={inverted ? "true" : "false"}
     >
-      {label}
+      <span className="relative block h-[1.1em] overflow-hidden leading-none">
+        <span aria-hidden="true" className="block whitespace-pre">
+          {labelChars.map((char, index) => (
+            <span
+              key={`top-${index}`}
+              className="inline-block transition-transform duration-300 ease-out group-hover:-translate-y-full group-focus-visible:-translate-y-full"
+              style={{ transitionDelay: `${index * 18}ms` }}
+            >
+              {char === " " ? "\u00A0" : char}
+            </span>
+          ))}
+        </span>
+        <span aria-hidden="true" className="absolute left-0 top-full block whitespace-pre">
+          {labelChars.map((char, index) => (
+            <span
+              key={`bottom-${index}`}
+              className="inline-block transition-transform duration-300 ease-out group-hover:-translate-y-full group-focus-visible:-translate-y-full"
+              style={{ transitionDelay: `${index * 18}ms` }}
+            >
+              {char === " " ? "\u00A0" : char}
+            </span>
+          ))}
+        </span>
+      </span>
     </a>
   );
 }
@@ -297,7 +323,7 @@ export default function Home() {
               </p>
               <div className="mt-8">
                 <OutlineButton
-                  label="CONNECT WITH ME ->"
+                  label="CONNECT WITH ME"
                   href="#contact-form"
                   weightClass="font-medium"
                 />
@@ -325,7 +351,7 @@ export default function Home() {
               <div className="border-t border-[var(--color-border)] pb-4 pt-8 md:pb-3 md:pt-7">
                 <div className="grid place-items-center">
                   <OutlineButton
-                    label="GET IN TOUCH ->"
+                    label="GET IN TOUCH"
                     href="#contact-form"
                     weightClass="font-medium"
                   />
