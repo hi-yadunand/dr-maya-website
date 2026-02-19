@@ -66,8 +66,7 @@ const backgroundItems: AccordionItem[] = [
   },
   {
     title: "Licensure",
-    content:
-      "Licensed Clinical Psychologist in California.",
+    content: "Licensed Clinical Psychologist in California.",
   },
   {
     title: "Certifications",
@@ -132,7 +131,10 @@ function OutlineButton({
             </span>
           ))}
         </span>
-        <span aria-hidden="true" className="absolute left-0 top-full block whitespace-pre">
+        <span
+          aria-hidden="true"
+          className="absolute left-0 top-full block whitespace-pre"
+        >
           {labelChars.map((char, index) => (
             <span
               key={`bottom-${index}`}
@@ -324,14 +326,15 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="col-span-4 md:col-span-4 lg:col-span-7 mx-auto w-full max-w-[560px] text-center lg:pl-6">
+            <div className="col-span-4 md:col-span-4 lg:col-span-7 mx-auto -mt-44 w-full max-w-[560px] text-center md:-mt-52 lg:-mt-56 lg:pl-6">
               <h1 className="text-[81px] leading-[83px] font-[500] max-md:text-[3rem] max-md:leading-[3.1rem]">
                 You Deserve to Feel Steadier.
                 <br />
                 Healing Starts Here.
               </h1>
               <p className="mt-7 text-[1.28rem] leading-8">
-                Compassionate therapy for anxiety, trauma, and burnout in Santa Monica
+                Compassionate therapy for anxiety, trauma, and burnout in Santa
+                Monica
               </p>
               <div className="mt-8">
                 <OutlineButton
@@ -432,7 +435,8 @@ export default function Home() {
                     You don&apos;t have to keep managing everything alone.
                   </h2>
                   <p className="mt-6 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.08rem] max-md:leading-8">
-                    If you&apos;re experiencing any of the following, therapy can help:
+                    If you&apos;re experiencing any of the following, therapy
+                    can help:
                   </p>
                   <ul className="mt-5 list-disc space-y-3 pl-5 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.06rem] max-md:leading-8">
                     <li>Constant anxiety or feeling on edge</li>
@@ -745,7 +749,8 @@ export default function Home() {
                 </a>
               </p>
               <p className="pt-4 text-[16px] font-[400] not-italic leading-[26px] text-[var(--color-text)] max-md:text-[0.9rem] max-md:leading-8">
-                All Rights Reserved &copy; 2024 Dr. Maya Reynolds Psychology, LLC
+                All Rights Reserved &copy; 2024 Dr. Maya Reynolds Psychology,
+                LLC
               </p>
             </div>
           </GridContainer>
