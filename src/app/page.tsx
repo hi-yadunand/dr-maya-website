@@ -317,8 +317,8 @@ export default function Home() {
             <div className="col-span-4 md:col-span-4 lg:col-span-5">
               <div className="arch-mask -mt-7 mr-auto w-full max-w-[575px]">
                 <img
-                  src="https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/08197a74-c045-4a19-a7c9-0f85c1032bc4/daiga-ellaby-M2P08N9zi2k-unsplash.jpg"
-                  alt="Person holding flowers"
+                  src="/assets/Dr.%20Maya%20Reynolds.png"
+                  alt="Dr. Maya Reynolds"
                   className="aspect-[2/3] w-full object-cover"
                 />
               </div>
