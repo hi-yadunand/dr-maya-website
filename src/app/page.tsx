@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { useEffect, useRef, useState } from "react";
+import { Nunito } from "next/font/google";
 import GridContainer from "../components/GridContainer";
 
 type Specialty = {
@@ -67,6 +68,12 @@ const navLinks = [
   { label: "Blog", href: "#professional-background" },
   { label: "Contact", href: "#contact-form" },
 ];
+
+const nunito = Nunito({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
 
 function PlusIcon({ open }: { open: boolean }) {
   return (
@@ -206,7 +213,7 @@ export default function Home() {
       className="bg-[var(--color-bg-primary)] text-[var(--color-text)]"
     >
       <header
-        className={`sticky top-0 z-50 bg-[var(--color-bg-primary-elevated)] backdrop-blur-sm transition-transform duration-300 ${
+        className={`${nunito.className} sticky top-0 z-50 bg-[var(--color-bg-primary-elevated)] backdrop-blur-sm transition-transform duration-300 ${
           isHeaderVisible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
