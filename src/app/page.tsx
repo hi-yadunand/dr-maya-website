@@ -289,6 +289,62 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    const revealTargets = Array.from(
+      document.querySelectorAll<HTMLElement>(
+        "main :is(h1, h2, h3, h4, p, li), footer :is(h1, h2, h3, h4, p, li)"
+      )
+    );
+
+    if (revealTargets.length === 0) return;
+
+    revealTargets.forEach((element) => {
+      element.setAttribute("data-reveal", "true");
+    });
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) {
+      revealTargets.forEach((element) => element.classList.add("is-visible"));
+      return () => {
+        revealTargets.forEach((element) => {
+          element.classList.remove("is-visible");
+          element.removeAttribute("data-reveal");
+        });
+      };
+    }
+
+    document.documentElement.classList.add("reveal-ready");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const target = entry.target as HTMLElement;
+          target.classList.add("is-visible");
+          observer.unobserve(target);
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -8% 0px",
+      }
+    );
+
+    revealTargets.forEach((element) => observer.observe(element));
+
+    return () => {
+      observer.disconnect();
+      document.documentElement.classList.remove("reveal-ready");
+      revealTargets.forEach((element) => {
+        element.classList.remove("is-visible");
+        element.removeAttribute("data-reveal");
+      });
+    };
+  }, []);
+
   return (
     <div
       id="top"
