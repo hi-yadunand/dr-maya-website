@@ -334,7 +334,7 @@ export default function Home() {
 
         <section className="bg-[var(--color-bg-alt)] py-0 lg:!h-[720px] lg:!min-h-[720px] lg:overflow-hidden">
           <GridContainer className="items-stretch gap-y-0 max-w-none pr-0 md:pr-0 lg:h-full">
-            <div className="col-span-4 md:col-span-8 lg:col-span-6 order-2 lg:order-1 grid bg-[var(--color-bg-alt)]">
+            <div className="col-span-4 md:col-span-8 lg:col-span-6 order-2 lg:order-1 grid grid-rows-[1fr_auto] bg-[var(--color-bg-alt)]">
               <div className="self-center py-10 lg:py-0 lg:pr-10">
                 <h2 className="text-[53px] font-[500] leading-[58px] max-md:text-[2.35rem] max-md:leading-[1.05] md:max-w-[760px]">
                   Live a fulfilling life.
@@ -348,7 +348,7 @@ export default function Home() {
                   challenges, but I want you to know that I&apos;m here to help.
                 </p>
               </div>
-              <div className="border-t border-[var(--color-border)] pb-4 pt-8 md:pb-3 md:pt-7">
+              <div className="border-t border-[var(--color-border)] py-6 md:py-6">
                 <div className="grid place-items-center">
                   <OutlineButton
                     label="GET IN TOUCH"
@@ -400,9 +400,9 @@ export default function Home() {
           </GridContainer>
         </section>
 
-        <section className="bg-[#F8F3EC] py-20 md:py-0">
-          <GridContainer className="items-center max-w-none pl-0 md:pl-0">
-            <div className="col-span-4 md:col-span-8 lg:col-span-6 lg:h-full">
+        <section className="bg-[#F8F3EC] py-20 md:py-0 lg:!h-[720px] lg:!min-h-[720px] lg:overflow-hidden">
+          <GridContainer className="items-stretch gap-y-0 max-w-none pl-0 md:pl-0 lg:h-full">
+            <div className="col-span-4 md:col-span-8 lg:col-span-6 overflow-hidden lg:h-full">
               <img
                 src="https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/a77b422e-33ac-47b2-825f-293d33884041/valeriia-miller-5jR4rAMs5tk-unsplash+%281%29.jpg"
                 alt="Field flowers"
@@ -410,26 +410,30 @@ export default function Home() {
               />
             </div>
 
-            <div className="col-span-4 md:col-span-8 lg:col-span-6 lg:py-20 lg:pl-6">
-              <div className="max-w-[560px]">
-                <h2 className="text-[53px] font-[500] not-italic leading-[58px] text-[var(--color-text)] max-md:text-[2.35rem] max-md:leading-[1.05]">
-                  You do not have to do this all alone.
-                </h2>
-                <p className="mt-6 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.08rem] max-md:leading-8">
-                  If you are facing any of these, there is hope:
-                </p>
-                <ul className="mt-5 list-disc space-y-3 pl-5 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.06rem] max-md:leading-8">
-                  <li>Persistent feelings of sadness or hopelessness</li>
-                  <li>Trouble focusing or making decisions</li>
-                  <li>Difficulty maintaining relationships</li>
-                  <li>Feeling constantly exhausted or unmotivated</li>
-                  <li>A pervasive sense of being overwhelmed</li>
-                </ul>
-                <p className="mt-7 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.08rem] max-md:leading-8">
-                  With empathy and guidance, we will work together to navigate
-                  the challenges life throws your way.
-                </p>
-                <div className="mt-10">
+            <div className="col-span-4 md:col-span-8 lg:col-span-6 grid grid-rows-[1fr_auto] bg-[#F8F3EC] lg:h-full">
+              <div className="self-center py-10 lg:py-0 lg:pl-6">
+                <div className="max-w-[560px]">
+                  <h2 className="text-[53px] font-[500] not-italic leading-[58px] text-[var(--color-text)] max-md:text-[2.35rem] max-md:leading-[1.05]">
+                    You do not have to do this all alone.
+                  </h2>
+                  <p className="mt-6 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.08rem] max-md:leading-8">
+                    If you are facing any of these, there is hope:
+                  </p>
+                  <ul className="mt-5 list-disc space-y-3 pl-5 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.06rem] max-md:leading-8">
+                    <li>Persistent feelings of sadness or hopelessness</li>
+                    <li>Trouble focusing or making decisions</li>
+                    <li>Difficulty maintaining relationships</li>
+                    <li>Feeling constantly exhausted or unmotivated</li>
+                    <li>A pervasive sense of being overwhelmed</li>
+                  </ul>
+                  <p className="mt-7 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.08rem] max-md:leading-8">
+                    With empathy and guidance, we will work together to navigate
+                    the challenges life throws your way.
+                  </p>
+                </div>
+              </div>
+              <div className="border-t border-[var(--color-border)] py-6 md:py-6">
+                <div className="grid place-items-center">
                   <OutlineButton label="WORK WITH ME" href="#contact-form" />
                 </div>
               </div>
