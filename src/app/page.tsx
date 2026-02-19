@@ -1,7 +1,7 @@
 "use client";
-/* eslint-disable @next/next/no-img-element */
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { Nunito } from "next/font/google";
 import GridContainer from "../components/GridContainer";
 
@@ -360,9 +360,14 @@ export default function Home() {
           <GridContainer className="items-center">
             <div className="col-span-4 md:col-span-4 lg:col-span-5">
               <div className="arch-mask -mt-7 mx-auto w-[72%] max-w-[575px] md:mx-0 md:mr-auto md:w-full">
-                <img
+                <Image
                   src="/assets/hero%20image.png"
                   alt="Hero image"
+                  width={1200}
+                  height={1800}
+                  priority
+                  fetchPriority="high"
+                  sizes="(max-width: 767px) 72vw, (max-width: 1023px) 46vw, 575px"
                   className="aspect-[2/3] w-full object-cover"
                 />
               </div>
@@ -420,9 +425,12 @@ export default function Home() {
             </div>
 
             <div className="col-span-4 md:col-span-8 lg:col-span-6 order-1 -mx-[6vw] w-[calc(100%+12vw)] overflow-hidden md:mx-0 md:w-full lg:order-2 lg:h-full">
-              <img
+              <Image
                 src="/assets/Create%20a%20steadier.png"
                 alt="Create a steadier"
+                width={1200}
+                height={1200}
+                sizes="(max-width: 767px) 100vw, (max-width: 1023px) 100vw, 50vw"
                 className="h-full min-h-[300px] w-full object-cover object-right md:min-h-0"
               />
             </div>
@@ -448,9 +456,12 @@ export default function Home() {
                     {specialty.description}
                   </p>
                   <div className="circle-mask mt-10 w-[80%] max-w-[410px] justify-self-center md:mt-14">
-                    <img
+                    <Image
                       src={specialty.image}
                       alt={specialty.title}
+                      width={900}
+                      height={900}
+                      sizes="(max-width: 575px) 70vw, (max-width: 1023px) 35vw, 24vw"
                       className="aspect-square w-full object-cover"
                     />
                   </div>
@@ -463,9 +474,12 @@ export default function Home() {
         <section className="bg-[#F8F3EC] py-20 md:py-0 lg:!h-[720px] lg:!min-h-[720px] lg:overflow-hidden">
           <GridContainer className="items-stretch gap-y-0 max-w-none lg:pl-0 lg:h-full">
             <div className="col-span-4 md:col-span-8 lg:col-span-6 -mx-[6vw] w-[calc(100%+12vw)] overflow-hidden md:mx-0 md:w-full lg:h-full">
-              <img
+              <Image
                 src="/assets/Managing%20everything%20alone.png"
                 alt="Managing everything alone"
+                width={1600}
+                height={1200}
+                sizes="(max-width: 767px) 100vw, (max-width: 1023px) 100vw, 50vw"
                 className="aspect-[4/3] w-full object-cover object-left lg:h-full lg:aspect-auto"
               />
             </div>
@@ -536,16 +550,22 @@ export default function Home() {
             <div className="col-span-4 md:col-span-8 lg:col-span-6 order-1 lg:order-2">
               <div className="relative mx-auto w-full max-w-[430px] lg:ml-[60px]">
                 <div className="arch-mask">
-                  <img
+                  <Image
                     src="/assets/Dr.%20Maya%20Reynolds.png"
                     alt="Dr. Maya Reynolds"
+                    width={1200}
+                    height={1800}
+                    sizes="(max-width: 767px) 84vw, (max-width: 1023px) 60vw, 430px"
                     className="aspect-[2/3] w-full object-cover"
                   />
                 </div>
                 <div className="circle-mask absolute hidden lg:block -bottom-[47px] -right-[150px] w-[min(200px,30vh)] md:w-[min(220px,32vh)] md:-bottom-[55px] md:-right-[158px]">
-                  <img
+                  <Image
                     src="/assets/small%20image.png"
                     alt="Small image"
+                    width={600}
+                    height={600}
+                    sizes="220px"
                     className="aspect-square w-full object-cover"
                   />
                 </div>
@@ -580,16 +600,22 @@ export default function Home() {
 
             <div className="col-span-4 md:col-span-8 lg:col-span-6 grid gap-4 sm:grid-cols-2 md:gap-5">
               <div className="arch-mask sm:col-span-2">
-                <img
+                <Image
                   src="/assets/office1.jpeg"
                   alt="Warm therapy office seating area"
+                  width={1600}
+                  height={1000}
+                  sizes="(max-width: 767px) 88vw, (max-width: 1023px) 92vw, 50vw"
                   className="aspect-[16/10] w-full object-cover"
                 />
               </div>
               <div className="-mx-[6vw] w-[calc(100%+12vw)] overflow-hidden rounded-[24px] border border-[var(--color-border)] bg-[var(--color-bg-alt)] md:mx-0 md:w-full">
-                <img
+                <Image
                   src="/assets/office2.jpeg"
                   alt="Counseling office space"
+                  width={1200}
+                  height={900}
+                  sizes="(max-width: 767px) 100vw, (max-width: 1023px) 46vw, 24vw"
                   className="aspect-[4/3] w-full object-cover"
                 />
               </div>
@@ -607,9 +633,12 @@ export default function Home() {
         <section className="bg-[var(--color-bg-alt)] py-20 md:py-28">
           <GridContainer className="items-start">
             <div className="col-span-4 md:col-span-8 lg:col-span-5 arch-mask mx-auto w-full max-w-[460px] lg:mt-10">
-              <img
+              <Image
                 src="/assets/faqs%20image.png"
                 alt="FAQs image"
+                width={1200}
+                height={1800}
+                sizes="(max-width: 767px) 88vw, (max-width: 1023px) 60vw, 460px"
                 className="aspect-[2/3] w-full object-cover"
               />
             </div>
