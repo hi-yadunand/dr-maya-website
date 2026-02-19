@@ -314,7 +314,7 @@ export default function Home() {
         <section className="bg-[var(--color-bg-primary)] py-12 md:pb-0 md:pt-16">
           <GridContainer className="items-center">
             <div className="col-span-4 md:col-span-4 lg:col-span-5">
-              <div className="arch-mask -mt-7 mr-auto w-full max-w-[575px]">
+              <div className="arch-mask -mt-7 mx-auto w-[72%] max-w-[575px] md:mx-0 md:mr-auto md:w-full">
                 <img
                   src="/assets/hero%20image.png"
                   alt="Hero image"
@@ -323,8 +323,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="col-span-4 md:col-span-4 lg:col-span-7 mx-auto -mt-44 w-full max-w-[560px] text-center md:-mt-52 lg:-mt-56 lg:pl-6">
-              <h1 className="text-[81px] leading-[83px] font-[500] max-md:text-[3rem] max-md:leading-[3.1rem]">
+            <div className="col-span-4 md:col-span-4 lg:col-span-7 mx-auto mt-6 w-full max-w-[560px] text-center md:-mt-52 lg:-mt-56 lg:pl-6">
+              <h1 className="text-[clamp(2.4rem,11vw,5.0625rem)] leading-[clamp(2.6rem,11.3vw,5.1875rem)] font-[500]">
                 You Deserve to Feel Steadier.
                 <br />
                 Healing Starts Here.
@@ -497,7 +497,7 @@ export default function Home() {
                     className="aspect-[2/3] w-full object-cover"
                   />
                 </div>
-                <div className="circle-mask absolute -bottom-[47px] -right-[150px] w-[min(200px,30vh)] md:w-[min(220px,32vh)] md:-bottom-[55px] md:-right-[158px]">
+                <div className="circle-mask absolute hidden lg:block -bottom-[47px] -right-[150px] w-[min(200px,30vh)] md:w-[min(220px,32vh)] md:-bottom-[55px] md:-right-[158px]">
                   <img
                     src="/assets/small%20image.png"
                     alt="Small image"
