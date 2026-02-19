@@ -316,8 +316,8 @@ export default function Home() {
             <div className="col-span-4 md:col-span-4 lg:col-span-5">
               <div className="arch-mask -mt-7 mr-auto w-full max-w-[575px]">
                 <img
-                  src="/assets/Dr.%20Maya%20Reynolds.png"
-                  alt="Dr. Maya Reynolds"
+                  src="/assets/hero%20image.png"
+                  alt="Hero image"
                   className="aspect-[2/3] w-full object-cover"
                 />
               </div>
@@ -499,8 +499,8 @@ export default function Home() {
                 </div>
                 <div className="circle-mask absolute -bottom-[47px] -right-[150px] w-[min(200px,30vh)] md:w-[min(220px,32vh)] md:-bottom-[55px] md:-right-[158px]">
                   <img
-                    src="https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/9f889e1b-ba2b-4a6d-92e9-767dd3db67ae/lilac+template+white+lilac.jpeg"
-                    alt="Lilac flower close up"
+                    src="/assets/small%20image.png"
+                    alt="Small image"
                     className="aspect-square w-full object-cover"
                   />
                 </div>
@@ -563,8 +563,8 @@ export default function Home() {
           <GridContainer className="items-start">
             <div className="col-span-4 md:col-span-8 lg:col-span-5 arch-mask mx-auto w-full max-w-[460px] lg:mt-10">
               <img
-                src="https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/3a7e28f0-28fd-47cd-9857-6c415afed795/myxa69-APKZU4NJcgs-unsplash.jpg"
-                alt="Notebook and flower"
+                src="/assets/faqs%20image.png"
+                alt="FAQs image"
                 className="aspect-[2/3] w-full object-cover"
               />
             </div>
