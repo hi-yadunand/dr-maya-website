@@ -21,22 +21,19 @@ const specialties: Specialty[] = [
     title: "Anxiety & Panic Therapy",
     description:
       "Support for constant worry, overthinking, physical tension, and panic symptoms using evidence-based approaches that help restore calm and control.",
-    image:
-      "https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/166607b6-21a7-4e30-8c74-9c911c9f33fb/milles-studio-GU-Q4-SQFTg-unsplash.jpg",
+    image: "/assets/Anxiety%20%26%20Panic%20Therapy.png",
   },
   {
     title: "Trauma Therapy",
     description:
       "Trauma Therapy (EMDR & Body-Oriented Techniques): Carefully paced trauma work to help process past experiences that continue to affect emotional safety, confidence, and relationships.",
-    image:
-      "https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/f53aed66-5bd9-43e0-b00b-3a3537fed68d/ori-song-LPbKfdQJS2E-unsplash.jpg",
+    image: "/assets/Trauma%20Therapy.png",
   },
   {
     title: "Burnout & Stress",
     description:
       "Burnout & High-Pressure Stress: Therapy for professionals, creatives, and high-achievers struggling with exhaustion, perfectionism, and chronic stress after years of pushing through pressure.",
-    image:
-      "https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/515651b9-4001-47ae-8ca1-2a6ff8f2bef0/ivana-cajina--wn1PECo5-U-unsplash.jpg",
+    image: "/assets/Burnout%20%26%20Stress.png",
   },
 ];
 
