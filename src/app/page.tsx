@@ -257,7 +257,7 @@ export default function Home() {
       >
         <div className="page-shell hidden items-baseline justify-between pb-7 pt-3 md:flex">
           <a href="#top" className="text-[2.15rem] font-medium leading-[41px]">
-            Dr. Maya Reynolds, PsyD
+            Dr. Maya Reynolds
           </a>
           <nav className="flex items-baseline gap-10 text-[1.25rem] leading-[31px]">
             {navLinks.map((link) => (
@@ -288,7 +288,7 @@ export default function Home() {
             href="#top"
             className="text-center text-[1.85rem] font-medium leading-none"
           >
-            Dr. Maya Reynolds, PsyD
+            Dr. Maya Reynolds
           </a>
           <span />
         </div>
@@ -326,12 +326,12 @@ export default function Home() {
 
             <div className="col-span-4 md:col-span-4 lg:col-span-7 mx-auto w-full max-w-[560px] text-center lg:pl-6">
               <h1 className="text-[81px] leading-[83px] font-[500] max-md:text-[3rem] max-md:leading-[3.1rem]">
-                Find calm and emotional balance
+                You Deserve to Feel Steadier.
                 <br />
-                in your everyday life
+                Healing Starts Here.
               </h1>
               <p className="mt-7 text-[1.28rem] leading-8">
-                Anxiety, Trauma &amp; Burnout Therapy for Adults in Santa Monica, CA
+                Compassionate therapy for anxiety, trauma, and burnout in Santa Monica
               </p>
               <div className="mt-8">
                 <OutlineButton
