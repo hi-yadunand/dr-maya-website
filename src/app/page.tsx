@@ -376,8 +376,8 @@ export default function Home() {
 
             <div className="col-span-4 md:col-span-8 lg:col-span-6 order-1 lg:order-2 overflow-hidden lg:h-full">
               <img
-                src="https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/87fa2310-36df-4a24-a9e9-1b74df73f150/tanya-trukyr-ornZV1YJNNo-unsplash.jpg"
-                alt="Woman in flowers"
+                src="/assets/Create%20a%20steadier.png"
+                alt="Create a steadier"
                 className="h-full min-h-[300px] w-full object-cover object-right md:min-h-0"
               />
             </div>
@@ -419,8 +419,8 @@ export default function Home() {
           <GridContainer className="items-stretch gap-y-0 max-w-none pl-0 md:pl-0 lg:h-full">
             <div className="col-span-4 md:col-span-8 lg:col-span-6 overflow-hidden lg:h-full">
               <img
-                src="https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/a77b422e-33ac-47b2-825f-293d33884041/valeriia-miller-5jR4rAMs5tk-unsplash+%281%29.jpg"
-                alt="Field flowers"
+                src="/assets/Managing%20everything%20alone.png"
+                alt="Managing everything alone"
                 className="aspect-[4/3] w-full object-cover object-left lg:h-full lg:aspect-auto"
               />
             </div>
@@ -492,8 +492,8 @@ export default function Home() {
               <div className="relative mx-auto w-full max-w-[430px] lg:ml-[60px]">
                 <div className="arch-mask">
                   <img
-                    src="https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/9a77a6f2-1c50-4582-a5c1-5ec0dc2e94e8/daiga-ellaby-Ct6LBZHaOSc-unsplash.jpg"
-                    alt="Woman with flowers"
+                    src="/assets/Dr.%20Maya%20Reynolds.png"
+                    alt="Dr. Maya Reynolds"
                     className="aspect-[2/3] w-full object-cover"
                   />
                 </div>
