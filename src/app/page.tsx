@@ -18,49 +18,61 @@ type AccordionItem = {
 
 const specialties: Specialty[] = [
   {
-    title: "Self-Esteem",
+    title: "Anxiety & Panic Therapy",
     description:
-      "Building a strong sense of self-worth is key to living a fulfilled life. Let's work together to bolster your self-esteem.",
+      "Support for constant worry, overthinking, physical tension, and panic symptoms using evidence-based approaches that help restore calm and control.",
     image:
       "https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/166607b6-21a7-4e30-8c74-9c911c9f33fb/milles-studio-GU-Q4-SQFTg-unsplash.jpg",
   },
   {
-    title: "Relationships",
+    title: "Trauma Therapy",
     description:
-      "Navigating relationships can be complex. I'm here to guide you through these complexities to help you form healthier connections.",
+      "Trauma Therapy (EMDR & Body-Oriented Techniques): Carefully paced trauma work to help process past experiences that continue to affect emotional safety, confidence, and relationships.",
     image:
       "https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/f53aed66-5bd9-43e0-b00b-3a3537fed68d/ori-song-LPbKfdQJS2E-unsplash.jpg",
   },
   {
-    title: "Burnout",
+    title: "Burnout & Stress",
     description:
-      "Feeling overwhelmed by your career is more common than you think. Together, we'll identify strategies to manage and prevent burnout.",
+      "Burnout & High-Pressure Stress: Therapy for professionals, creatives, and high-achievers struggling with exhaustion, perfectionism, and chronic stress after years of pushing through pressure.",
     image:
       "https://images.squarespace-cdn.com/content/v1/65d10c6adcfabe1819ed4e07/515651b9-4001-47ae-8ca1-2a6ff8f2bef0/ivana-cajina--wn1PECo5-U-unsplash.jpg",
   },
 ];
 
 const faqItems: AccordionItem[] = [
-  { title: "Do you take insurance?", content: "Answer goes here." },
-  { title: "What are your rates?", content: "Answer goes here." },
-  { title: "Do you have any openings?", content: "Answer goes here." },
+  {
+    title: "Do you offer in-person and online therapy?",
+    content:
+      "Yes. I provide in-person therapy from my Santa Monica office as well as secure telehealth sessions for clients located in California.",
+  },
+  {
+    title: "What concerns do you specialize in?",
+    content:
+      "I primarily work with anxiety, panic, trauma, burnout, perfectionism, and chronic stress in adults.",
+  },
+  {
+    title: "What therapy approaches do you use?",
+    content:
+      "I integrate CBT, EMDR, mindfulness-based therapy, and body-oriented techniques to support emotional healing and nervous system regulation.",
+  },
 ];
 
 const backgroundItems: AccordionItem[] = [
   {
     title: "Education",
     content:
-      "Euphorbia dianthus alchemilla muscari lavandula anthurium artemesia false artemesia moluccella gladiolus cirsium trollius anthurium prunus delphinium achillea.",
+      "Doctor of Psychology (PsyD) in Clinical Psychology with advanced training in adult anxiety, trauma, and stress-related treatment.",
   },
   {
     title: "Licensure",
     content:
-      "Euphorbia dianthus alchemilla muscari lavandula anthurium artemesia false artemesia moluccella gladiolus cirsium trollius anthurium prunus delphinium achillea.",
+      "Licensed Clinical Psychologist in California.",
   },
   {
     title: "Certifications",
     content:
-      "Euphorbia dianthus alchemilla muscari lavandula anthurium artemesia false artemesia moluccella gladiolus cirsium trollius anthurium prunus delphinium achillea.",
+      "Specialized training in CBT, EMDR, mindfulness-based interventions, and body-oriented trauma techniques.",
   },
 ];
 
@@ -245,7 +257,7 @@ export default function Home() {
       >
         <div className="page-shell hidden items-baseline justify-between pb-7 pt-3 md:flex">
           <a href="#top" className="text-[2.15rem] font-medium leading-[41px]">
-            Lilac Template
+            Dr. Maya Reynolds, PsyD
           </a>
           <nav className="flex items-baseline gap-10 text-[1.25rem] leading-[31px]">
             {navLinks.map((link) => (
@@ -276,7 +288,7 @@ export default function Home() {
             href="#top"
             className="text-center text-[1.85rem] font-medium leading-none"
           >
-            Lilac Template
+            Dr. Maya Reynolds, PsyD
           </a>
           <span />
         </div>
@@ -314,12 +326,12 @@ export default function Home() {
 
             <div className="col-span-4 md:col-span-4 lg:col-span-7 mx-auto w-full max-w-[560px] text-center lg:pl-6">
               <h1 className="text-[81px] leading-[83px] font-[500] max-md:text-[3rem] max-md:leading-[3.1rem]">
-                Live your life
+                Find calm and emotional balance
                 <br />
-                in full bloom
+                in your everyday life
               </h1>
               <p className="mt-7 text-[1.28rem] leading-8">
-                Therapy for Adults in Minneapolis, MN.
+                Anxiety, Trauma &amp; Burnout Therapy for Adults in Santa Monica, CA
               </p>
               <div className="mt-8">
                 <OutlineButton
@@ -337,15 +349,18 @@ export default function Home() {
             <div className="col-span-4 md:col-span-8 lg:col-span-6 order-2 lg:order-1 grid grid-rows-[1fr_auto] bg-[var(--color-bg-alt)]">
               <div className="self-center py-10 lg:py-0 lg:pr-10">
                 <h2 className="text-[53px] font-[500] leading-[58px] max-md:text-[2.35rem] max-md:leading-[1.05] md:max-w-[760px]">
-                  Live a fulfilling life.
+                  Create a steadier, more grounded life.
                 </h2>
                 <p className="mt-8 max-w-[860px] text-[20px] font-[400] leading-[31px] max-md:text-[1.08rem] max-md:leading-8">
-                  Life can be challenging - especially when you&apos;re trying
-                  to balance your personal and professional life.
+                  Living with anxiety, chronic stress, or the lingering effects
+                  of past experiences can quietly take over your thoughts, body,
+                  and energy.
                 </p>
                 <p className="mt-6 max-w-[860px] text-[20px] font-[400] leading-[31px] max-md:text-[1.08rem] max-md:leading-8 md:mt-8">
-                  It&apos;s easy to feel like you&apos;re alone in facing these
-                  challenges, but I want you to know that I&apos;m here to help.
+                  Many of my clients are high-achieving and thoughtful on the
+                  outside, yet internally feel overwhelmed, exhausted, or
+                  constantly on edge. Therapy offers a space to slow down, feel
+                  supported, and begin healing in a meaningful way.
                 </p>
               </div>
               <div className="border-t border-[var(--color-border)] py-6 md:py-6">
@@ -414,21 +429,23 @@ export default function Home() {
               <div className="self-center py-10 lg:py-0 lg:pl-6">
                 <div className="max-w-[560px]">
                   <h2 className="text-[53px] font-[500] not-italic leading-[58px] text-[var(--color-text)] max-md:text-[2.35rem] max-md:leading-[1.05]">
-                    You do not have to do this all alone.
+                    You don&apos;t have to keep managing everything alone.
                   </h2>
                   <p className="mt-6 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.08rem] max-md:leading-8">
-                    If you are facing any of these, there is hope:
+                    If you&apos;re experiencing any of the following, therapy can help:
                   </p>
                   <ul className="mt-5 list-disc space-y-3 pl-5 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.06rem] max-md:leading-8">
-                    <li>Persistent feelings of sadness or hopelessness</li>
-                    <li>Trouble focusing or making decisions</li>
-                    <li>Difficulty maintaining relationships</li>
-                    <li>Feeling constantly exhausted or unmotivated</li>
-                    <li>A pervasive sense of being overwhelmed</li>
+                    <li>Constant anxiety or feeling on edge</li>
+                    <li>Overthinking and difficulty relaxing</li>
+                    <li>Trouble sleeping or physical tension</li>
+                    <li>Emotional exhaustion and burnout</li>
+                    <li>Lingering effects of past experiences</li>
+                    <li>Feeling functional but internally overwhelmed</li>
                   </ul>
                   <p className="mt-7 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.08rem] max-md:leading-8">
-                    With empathy and guidance, we will work together to navigate
-                    the challenges life throws your way.
+                    With evidence-based support and a collaborative approach,
+                    we&apos;ll work together to build emotional regulation,
+                    clarity, and long-term resilience.
                   </p>
                 </div>
               </div>
@@ -445,13 +462,25 @@ export default function Home() {
           <GridContainer className="items-center">
             <div className="col-span-4 md:col-span-8 lg:col-span-6 order-2 lg:order-1 max-w-[560px]">
               <h2 className="text-[53px] font-[500] not-italic leading-[58px] text-[var(--color-text)] max-md:text-[2.35rem] max-md:leading-[1.05]">
-                Hi, I am Lilac.
+                Hi, I&apos;m Dr. Maya Reynolds.
               </h2>
               <p className="mt-6 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.08rem] max-md:leading-8">
-                I am committed to providing a safe and supportive environment
-                where we can explore your thoughts, feelings, and behaviors.
-                With empathy and guidance, we will work together to navigate the
-                challenges life throws your way.
+                I&apos;m a licensed clinical psychologist in Santa Monica,
+                California, offering therapy for adults struggling with anxiety,
+                trauma, and burnout.
+              </p>
+              <p className="mt-5 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.08rem] max-md:leading-8">
+                My approach is warm, collaborative, and grounded. I integrate
+                cognitive-behavioral therapy (CBT), EMDR, mindfulness-based
+                practices, and body-oriented techniques to address both
+                emotional experiences and the physical impact of stress and
+                trauma.
+              </p>
+              <p className="mt-5 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.08rem] max-md:leading-8">
+                Together, we&apos;ll explore what&apos;s been weighing on you
+                and develop healthier, more sustainable ways of coping and
+                living, with a focus on safety, regulation, and long-term
+                growth.
               </p>
               <div className="mt-10">
                 <OutlineButton label="LET'S CHAT" href="#contact-form" />
@@ -486,19 +515,20 @@ export default function Home() {
                 A Calm Space for Healing
               </h2>
               <p className="mt-6 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.08rem] max-md:leading-8">
-                Our Minneapolis office is designed to feel warm, private, and
-                welcoming from the moment you arrive.
+                My Santa Monica therapy office is a quiet, private space
+                designed to feel calm and grounding, with natural light and a
+                comfortable, uncluttered environment.
               </p>
               <p className="mt-5 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.08rem] max-md:leading-8">
-                Sessions are available in person and online, so you can choose
-                the format that supports you best.
+                I offer both in-person therapy in Santa Monica and secure
+                telehealth sessions for adults across California.
               </p>
               <ul className="mt-7 list-disc space-y-2 pl-5 text-[18px] font-[400] not-italic leading-8 text-[var(--color-text)] max-md:text-[1rem]">
-                <li>A quiet, confidential space for focused therapy work</li>
+                <li>A peaceful and confidential space for therapy</li>
                 <li>
-                  Convenient Minneapolis location with weekday appointments
+                  Convenient Santa Monica location with weekday appointments
                 </li>
-                <li>In-person and hybrid care options</li>
+                <li>In-person and online session options</li>
               </ul>
             </div>
 
@@ -519,9 +549,9 @@ export default function Home() {
               </div>
               <div className="grid place-items-center rounded-[24px] border border-[var(--color-border)] bg-[var(--color-bg-alt)] p-6 text-center">
                 <p className="text-[16px] font-[400] not-italic leading-7 text-[var(--color-text)]">
-                  Minneapolis, MN
+                  Santa Monica, CA
                   <br />
-                  In-person and virtual sessions
+                  In-person and virtual therapy
                 </p>
               </div>
             </div>
@@ -579,10 +609,9 @@ export default function Home() {
                 Get started today.
               </h3>
               <p className="mx-auto mt-6 max-w-[760px] text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.08rem] max-md:leading-8">
-                Ready to take the first step towards a happier, healthier you?
-                <br />
-                Contact me to book your first session. I look forward to
-                starting this therapeutic journey with you.
+                If you&apos;re ready to feel calmer, more grounded, and
+                emotionally supported, contact me to schedule your first therapy
+                session.
               </p>
               <div className="mt-10">
                 <OutlineButton
@@ -604,19 +633,19 @@ export default function Home() {
           <GridContainer className="gap-y-10">
             <div className="col-span-4 md:col-span-4 lg:col-span-6">
               <h3 className="text-[44px] font-[500] not-italic leading-[49px] text-[var(--color-text)] max-md:text-[2rem] max-md:leading-[1.2]">
-                Lilac Template
+                Dr. Maya Reynolds, PsyD
               </h3>
               <p className="mt-5 text-[20px] font-[400] not-italic leading-[31px] text-[var(--color-text)] max-md:text-[1.06rem] max-md:leading-8">
-                123 Example Road
+                123th Street 45 W
                 <br />
-                Minneapolis, MN
+                Santa Monica, CA 90401
                 <br />
                 <br />
                 <a
-                  href="mailto:email@example.com"
+                  href="mailto:contact@mayareynoldspsychology.com"
                   className="always-underline transition-colors duration-200 hover:text-[var(--color-accent)]"
                 >
-                  email@example.com
+                  contact@mayareynoldspsychology.com
                 </a>
                 <br />
                 <a
@@ -716,7 +745,7 @@ export default function Home() {
                 </a>
               </p>
               <p className="pt-4 text-[16px] font-[400] not-italic leading-[26px] text-[var(--color-text)] max-md:text-[0.9rem] max-md:leading-8">
-                All Rights Reserved &copy; 2024 Your Business Name Here, LLC.
+                All Rights Reserved &copy; 2024 Dr. Maya Reynolds Psychology, LLC
               </p>
             </div>
           </GridContainer>
