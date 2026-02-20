@@ -10,7 +10,7 @@ const castoro = Castoro({
 });
 
 export const metadata: Metadata = {
-  title: "Lilac Template Clone",
+  title: "Dr. Maya Reynolds",
   description: "Homepage clone built with Next.js and Tailwind CSS",
 };
 
