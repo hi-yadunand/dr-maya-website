@@ -630,13 +630,13 @@ export default function Home() {
                     className="aspect-[2/3] w-full object-cover"
                   />
                 </div>
-                <div className="circle-mask absolute hidden lg:block -bottom-[47px] -right-[150px] w-[min(200px,30vh)] md:w-[min(220px,32vh)] md:-bottom-[55px] md:-right-[158px]">
+                <div className="circle-mask absolute -bottom-6 -right-6 w-[110px] md:w-[min(220px,32vh)] md:-bottom-[55px] md:-right-[158px] lg:-bottom-[47px] lg:-right-[150px] lg:w-[min(200px,30vh)]">
                   <Image
                     src="/assets/small%20image.png"
                     alt="Small image"
                     width={600}
                     height={600}
-                    sizes="220px"
+                    sizes="(max-width: 767px) 110px, 220px"
                     className="aspect-square w-full object-cover"
                   />
                 </div>
@@ -680,7 +680,7 @@ export default function Home() {
                   className="aspect-[16/10] w-full object-cover"
                 />
               </div>
-              <div className="-mx-[6vw] w-[calc(100%+12vw)] overflow-hidden rounded-[24px] border border-[var(--color-border)] bg-[var(--color-bg-alt)] md:mx-0 md:w-full">
+              <div className="overflow-hidden rounded-[24px] border border-[var(--color-border)] bg-[var(--color-bg-alt)]">
                 <Image
                   src="/assets/office2.jpeg"
                   alt="Counseling office space"
