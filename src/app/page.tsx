@@ -351,7 +351,7 @@ export default function Home() {
       className="bg-[var(--color-bg-primary)] text-[var(--color-text)]"
     >
       <header
-        className={`${nunito.className} sticky top-0 z-50 bg-[var(--color-bg-primary-elevated)] backdrop-blur-sm transition-transform duration-300 ${
+        className={`${nunito.className} sticky top-0 ${mobileMenuOpen ? "z-[70]" : "z-50"} bg-[var(--color-bg-primary-elevated)] backdrop-blur-sm transition-transform duration-300 ${
           isHeaderVisible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
@@ -372,48 +372,63 @@ export default function Home() {
           </nav>
         </div>
 
-        <div className="page-shell grid grid-cols-[40px_1fr_40px] items-center py-5 md:hidden">
+        <div className="page-shell grid grid-cols-[40px_1fr] items-center py-5 md:hidden">
           <button
             type="button"
-            aria-label="Open menu"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
             onClick={() => setMobileMenuOpen((state) => !state)}
-            className={`${nunito.className} inline-flex h-8 w-8 items-center justify-center`}
+            className={`${nunito.className} relative inline-flex h-8 w-8 items-center justify-center`}
           >
-            <span className="space-y-1.5">
-              <span className="block h-px w-5 bg-[var(--color-text)]" />
-              <span className="block h-px w-5 bg-[var(--color-text)]" />
-            </span>
+            <span
+              className={`absolute block h-px w-5 bg-[var(--color-text)] transition-transform duration-300 ease-out motion-reduce:transition-none ${
+                mobileMenuOpen
+                  ? "translate-y-0 rotate-45"
+                  : "-translate-y-1 rotate-0"
+              }`}
+            />
+            <span
+              className={`absolute block h-px w-5 bg-[var(--color-text)] transition-transform duration-300 ease-out motion-reduce:transition-none ${
+                mobileMenuOpen
+                  ? "translate-y-0 -rotate-45"
+                  : "translate-y-1 rotate-0"
+              }`}
+            />
           </button>
           <a
             href="#top"
-            className="text-center text-[1.85rem] font-medium leading-none"
+            className="justify-self-end text-right text-[1.55rem] font-medium leading-none"
           >
             Dr. Maya Reynolds
           </a>
-          <span />
         </div>
 
-        {mobileMenuOpen && (
-          <nav className="border-t border-[var(--color-border)] bg-[var(--color-bg-primary)] px-[6vw] py-4 md:hidden">
-            <div className="flex flex-col gap-3 text-[1.1rem]">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="transition-colors duration-200 hover:text-[var(--color-accent)]"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </nav>
-        )}
       </header>
+
+      {mobileMenuOpen && (
+        <nav
+          id="mobile-menu"
+          className="fixed inset-0 z-[60] bg-[var(--color-bg-primary)] md:hidden"
+        >
+          <div className="page-shell flex h-full flex-col items-center justify-center gap-6 text-center text-[1.35rem]">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="transition-colors duration-200 hover:text-[var(--color-accent)]"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </nav>
+      )}
 
       <main>
         <section className="bg-[var(--color-bg-primary)] py-12 md:pb-0 md:pt-16">
-          <GridContainer className="items-center">
+          <GridContainer className="items-center gap-y-3 md:gap-y-10">
             <div className="col-span-4 md:col-span-4 lg:col-span-5">
               <div className="arch-mask -mt-7 mx-auto w-[72%] max-w-[575px] md:mx-0 md:mr-auto md:w-full">
                 <Image
@@ -429,7 +444,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="col-span-4 md:col-span-4 lg:col-span-7 mx-auto mt-6 w-full max-w-[560px] text-center md:-mt-52 lg:-mt-56 lg:pl-6">
+            <div className="col-span-4 md:col-span-4 lg:col-span-7 mx-auto mt-0 w-full max-w-[560px] text-center md:-mt-52 lg:-mt-56 lg:pl-6">
               <h1 className="text-[clamp(2.4rem,11vw,5.0625rem)] leading-[clamp(2.6rem,11.3vw,5.1875rem)] font-[500]">
                 You Deserve to Feel Steadier.
                 <br />
@@ -761,7 +776,7 @@ export default function Home() {
           id="contact-form"
           className="bg-[var(--color-bg-primary)] py-16 md:py-20"
         >
-          <GridContainer className="gap-y-10">
+          <GridContainer className="gap-y-10 text-center md:text-left">
             <div className="col-span-4 md:col-span-4 lg:col-span-6">
               <h3 className="text-[44px] font-[500] not-italic leading-[49px] text-[var(--color-text)] max-md:text-[2rem] max-md:leading-[1.2]">
                 Dr. Maya Reynolds, PsyD
