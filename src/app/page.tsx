@@ -427,10 +427,10 @@ export default function Home() {
       )}
 
       <main>
-        <section className="bg-[var(--color-bg-primary)] py-12 md:pb-0 md:pt-16">
+        <section className="bg-[var(--color-bg-primary)] pb-12 pt-0 md:pb-0 md:pt-16">
           <GridContainer className="items-center gap-y-3 md:gap-y-10">
             <div className="col-span-4 md:col-span-4 lg:col-span-5">
-              <div className="arch-mask -mt-7 mx-auto w-[72%] max-w-[575px] md:mx-0 md:mr-auto md:w-full">
+              <div className="arch-mask mt-0 mx-auto w-[72%] max-w-[575px] md:-mt-7 md:mx-0 md:mr-auto md:w-full">
                 <Image
                   src="/assets/hero%20image.png"
                   alt="Hero image"
@@ -619,7 +619,7 @@ export default function Home() {
             </div>
 
             <div className="col-span-4 md:col-span-8 lg:col-span-6 order-1 lg:order-2">
-              <div className="relative mx-auto w-full max-w-[430px] lg:ml-[60px]">
+              <div className="relative mx-auto w-[72%] max-w-[575px] md:w-full md:max-w-[430px] lg:ml-[60px]">
                 <div className="arch-mask">
                   <Image
                     src="/assets/Dr.%20Maya%20Reynolds.png"
@@ -703,7 +703,7 @@ export default function Home() {
 
         <section className="bg-[var(--color-bg-alt)] py-20 md:py-28">
           <GridContainer className="items-start">
-            <div className="col-span-4 md:col-span-8 lg:col-span-5 arch-mask mx-auto w-full max-w-[460px] lg:mt-10">
+            <div className="col-span-4 md:col-span-8 lg:col-span-5 arch-mask mx-auto w-[72%] max-w-[575px] md:w-full md:max-w-[460px] lg:mt-10">
               <Image
                 src="/assets/faqs%20image.png"
                 alt="FAQs image"
